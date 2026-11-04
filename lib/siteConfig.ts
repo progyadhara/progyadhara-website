@@ -4,16 +4,16 @@
 export const siteConfig = {
   // ব্র্যান্ড পরিচিতি
   brand: {
-    name: "Farmer Kamol",
-    nameEn: "Farmer Kamol",
-    nameBn: "কৃষক কমল",
-    displayName: "Farmer Kamol – কৃষক কমল",
-    alternateNames: ["Krishok Kamol", "Krishak Kamal"],
-    slogan: "খামার থেকে আপনার দরজায়",
-    sloganEn: "From the Farm to Your Door",
+    name: "Progyadhara",
+    nameEn: "Progyadhara",
+    nameBn: "প্রজ্ঞাধারা",
+    displayName: "প্রজ্ঞাধারা – Progyadhara",
+    alternateNames: ["Proggadhara", "Prajnadhara"],
+    slogan: "জ্ঞানের ধারায় জীবনের পথ",
+    sloganEn: "The Path of Life Through the Stream of Knowledge",
     founderName: "Kamol Kumar Mahato",
     founderNameBn: "কমল কুমার মাহাতো",
-    youtubeHandle: "@FarmerKamol",
+    youtubeHandle: "@progyadhara",
     foundingYear: "2026",
   },
 
@@ -22,17 +22,17 @@ export const siteConfig = {
     bkashNumber: "01737939688",
     nagadNumber: "01737939688",
     bank: {
-      accountName: "", // এখনো যোগ করা হয়নি
-      accountNumber: "", // এখনো যোগ করা হয়নি
-      bankName: "", // এখনো যোগ করা হয়নি
-      branch: "", // এখনো যোগ করা হয়নি
+      accountName: "",
+      accountNumber: "",
+      bankName: "",
+      branch: "",
     },
   },
 
   // ডোমেইন ও URL
   domain: {
-    url: "https://farmerkamol.com",
-    host: "farmerkamol.com",
+    url: "https://progyadhara.com",
+    host: "progyadhara.com",
     ogImage: "/uploads/og-image.jpg",
     logo: "/uploads/logo.png",
   },
@@ -42,7 +42,7 @@ export const siteConfig = {
     phone: "+8801737939688",
     phoneDisplay: "01737939688",
     whatsapp: "8801737939688",
-    email: "contact@farmerkamol.com",
+    email: "contact@progyadhara.com",
   },
 
   // ঠিকানা
@@ -60,38 +60,39 @@ export const siteConfig = {
 
   // সোশ্যাল লিংক
   social: {
-    facebook: "https://www.facebook.com/farmerkamol",
-    youtube: "https://youtube.com/@FarmerKamol",
-    instagram: "https://www.instagram.com/farmer.kamol",
-    tiktok: "https://www.tiktok.com/@farmer.kamol",
+    facebook: "https://www.facebook.com/progyadhara",
+    youtube: "https://youtube.com/@progyadhara",
+    instagram: "https://www.instagram.com/progyadhara",
+    tiktok: "https://www.tiktok.com/@progyadhara",
   },
 
   // মেটাডেটা / SEO
   seo: {
-    defaultTitle: "Farmer Kamol – কৃষক কমল | খামার থেকে আপনার দরজায়",
-    titleTemplate: "%s | Farmer Kamol",
+    defaultTitle: "প্রজ্ঞাধারা – Progyadhara | জ্ঞানের ধারায় জীবনের পথ",
+    titleTemplate: "%s | প্রজ্ঞাধারা",
     description:
-    "Farmer Kamol – কৃষক কমল: সিরাজগঞ্জের নিজস্ব খামার থেকে সরাসরি খাঁটি মধু, খাঁটি গরুর ঘি, ভেজালমুক্ত সরিষার তেল, খেজুরের গুড় ও হাঁসের বাচ্চা — সারা বাংলাদেশে হোম ডেলিভারি। ঢাকার মধ্যে ২৪ ঘন্টায়, ঢাকার বাইরে ৪৮ ঘন্টায় পৌঁছে দিই। মধ্যস্থতাকারী ছাড়া কৃষকের কাছ থেকে সরাসরি কিনুন, অর্ডার বা যেকোনো জিজ্ঞাসায় WhatsApp অথবা কল করুন।",
+      "প্রজ্ঞাধারা – Progyadhara: হিন্দু ধর্মীয় বই, পবিত্র ধর্মগ্রন্থ ও পূজা উপকরণের বিশ্বস্ত অনলাইন প্ল্যাটফর্ম। সারা বাংলাদেশে হোম ডেলিভারি। জ্ঞানের ধারায় জীবনের পথ।",
     descriptionEn:
-    "Farmer Kamol – কৃষক কমল: Pure honey, pure cow ghee, adulteration-free mustard oil, date palm jaggery and duck chicks, straight from our own farm in Sirajganj, with home delivery across Bangladesh. We deliver within 24 hours inside Dhaka and within 48 hours outside Dhaka. Buy directly from the farmer with no middlemen, and for orders or any inquiry, WhatsApp or call us.",
+      "Progyadhara: Trusted online platform for Hindu religious books, sacred scriptures and puja accessories. Home delivery across Bangladesh.",
     keywords: [
-      "খাঁটি মধু",
-      "সরিষার তেল",
-      "দেশি ঘি",
-      "চীন হাঁসের বাচ্চা",
-      "সিরাজগঞ্জ খামার",
-      "Farmer Kamol",
-      "কৃষক কমল",
-      "Farmer Kamol কৃষক কমল",
+      "প্রজ্ঞাধারা",
+      "Progyadhara",
+      "হিন্দু ধর্মীয় বই",
+      "পবিত্র ধর্মগ্রন্থ",
+      "গীতা",
+      "পুরাণ",
+      "পূজা উপকরণ",
+      "ধর্মীয় বই",
+      "সনাতন ধর্ম",
     ],
   },
 
-  // ব্যবসায়িক তথ্য
+  // ব্যবসায়িক তথ্য
   business: {
-    priceRange: "৳50-৳3000",
+    priceRange: "৳50-৳5000",
     paymentAccepted: "Cash on Delivery, bKash, Nagad",
     currenciesAccepted: "BDT",
-    orderIdPrefix: "FK", // FK-YYYY-MM-DD-00001
+    orderIdPrefix: "PG",
     openingHours: {
       days: [
         "Monday",
