@@ -43,7 +43,6 @@ model SystemControlCenter {
   normalOutsideExtraPerUnit Int     @default(30)
   facebookPageUrl           String  @default("https://www.facebook.com/farmerkamol")
   youtubeChannelUrl         String  @default("https://www.youtube.com/@FarmerKamol")
-  enableInvestmentProgram   Boolean @default(false)
 }
 
 model User {
@@ -72,7 +71,6 @@ model User {
   customerOrders           Order[]             @relation("CustomerToOrder")
   reviews                  ProductReview[]
   walletTransactions       WalletTransaction[]
-  investorProfile          InvestorProfile?
 }
 
 model Category {
@@ -421,50 +419,6 @@ model BlogCategory {
   nameEn String?
 }
 
-model FosolCategory {
-  id            Int         @id @default(autoincrement())
-  name          String
-  nameEn        String?
-  slug          String      @unique
-  description   String?
-  descriptionEn String?
-  displayOrder  Int         @default(0)
-  isVisible     Boolean     @default(true)
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  items         FosolItem[]
-}
-
-model FosolItem {
-  id             Int           @id @default(autoincrement())
-  title          String
-  slug           String        @unique
-  titleEn        String?
-  slugEn         String?       @unique
-  titleBanglish  String?
-  content        String
-  contentEn      String?
-  image          String?
-  scientificName String?
-  season         String?
-  seasonEn       String?
-  region         String?
-  regionEn       String?
-  uses           String?
-  usesEn         String?
-  categoryId     Int
-  isPublished    Boolean       @default(false)
-  isFeatured     Boolean       @default(false)
-  seoTitle       String?
-  seoDescription String?
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
-  category       FosolCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-
-  @@index([categoryId])
-  @@index([isPublished])
-}
-
 model PushSubscription {
   id        Int      @id @default(autoincrement())
   endpoint  String   @unique
@@ -507,45 +461,6 @@ model ChatMessage {
   conversation   ChatConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 }
 
-model InvestorProfile {
-  id                   Int                        @id @default(autoincrement())
-  userId               Int                        @unique
-  user                 User                       @relation(fields: [userId], references: [id])
-  email                String?                    @unique
-  emailVerified        Boolean                    @default(false)
-  fatherName           String?
-  motherName           String?
-  // ঠিকানা
-  district             String?
-  upazila              String?
-  address              String?                    // বিস্তারিত ঠিকানা
-  nidNumber            String?
-  nidImageUrl          String?
-  photoImageUrl        String?                    // পাসপোর্ট সাইজ — UI রাউন্ড, অ্যাগ্রিমেন্ট স্কয়ার
-  signatureImageUrl    String?
-  paymentNumber        String?
-  // নমিনি
-  nomineeName          String?
-  nomineePhone         String?
-  nomineeRelation      String?
-  nomineeNid           String?
-  nomineeImageUrl      String?
-  termsAcceptedAt      DateTime?
-  profileCompletedAt   DateTime?
-  verificationStatus   InvestorVerificationStatus @default(PENDING)
-  verifiedAt           DateTime?
-  rejectionReason      String?
-  createdAt            DateTime                   @default(now())
-  updatedAt            DateTime                   @updatedAt
-  investments          Investment[]
-}
-
-enum InvestorVerificationStatus {
-  PENDING
-  APPROVED
-  REJECTED
-}
-
 model Project {
   id                     Int          @id @default(autoincrement())
   name                   String
@@ -576,22 +491,6 @@ model Project {
   createdAt              DateTime     @default(now())
   updatedAt              DateTime     @updatedAt
   investments            Investment[]
-}
-
-model Investment {
-  id                Int              @id @default(autoincrement())
-  investorProfileId Int
-  investorProfile   InvestorProfile  @relation(fields: [investorProfileId], references: [id])
-  projectId         Int
-  project           Project          @relation(fields: [projectId], references: [id])
-  amount            Float
-  status            InvestmentStatus @default(PENDING)
-  startDate         DateTime?
-  termMonths        Int?
-  createdAt         DateTime         @default(now())
-  updatedAt         DateTime         @updatedAt
-  transactions      Transaction[]
-  agreement         Agreement?
 }
 
 model Transaction {
