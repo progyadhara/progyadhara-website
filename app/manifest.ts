@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Farmer Kamol - খামার থেকে আপনার দরজায়",
+    name: "Farmer Kamol - জ্ঞানের ধারায় জীবনের পথ",
     short_name: "Farmer Kamol",
     description:
       "সিরাজগঞ্জের রায়গঞ্জ থেকে সরাসরি খাঁটি দেশি পণ্য, ন্যায্য মূল্যে।",

@@ -143,7 +143,7 @@ export default function AnnouncementBar() {
               ) : (
                 <>
                   খাঁটি মধু - খাঁটি ঘি - খাঁটি সরিষার তেল, খেজুরের খাঁটি গুড় ও হাঁসের বাচ্চা — সরাসরি
-                  খামার থেকে আপনার দরজায়।&nbsp;নমস্কার / আসসালামুআলাইকুম,&nbsp;
+                  জ্ঞানের ধারায় জীবনের পথ।&nbsp;নমস্কার / আসসালামুআলাইকুম,&nbsp;
                   <a
                     href={localizeHref("/", locale)}
                     className="text-yellow-400 font-bold hover:underline"

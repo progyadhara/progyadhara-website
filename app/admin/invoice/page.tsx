@@ -43,7 +43,7 @@ function A4Invoice({ order, qrUrl }: { order: Order; qrUrl: string }) {
               Farmer Kamol
             </h1>
             <p className="text-xs text-yellow-600 font-semibold">
-              খামার থেকে আপনার দরজায়
+              জ্ঞানের ধারায় জীবনের পথ
             </p>
             <p className="text-xs text-gray-400">youtube.com/@FarmerKamol</p>
           </div>
@@ -153,7 +153,7 @@ function POSInvoice({ order, qrUrl }: { order: Order; qrUrl: string }) {
           className="w-12 h-12 rounded-full mx-auto mb-1 object-cover"
         />
         <p className="font-extrabold text-green-800 text-base">FARMER KAMOL</p>
-        <p className="text-xs text-yellow-600">খামার থেকে আপনার দরজায়</p>
+        <p className="text-xs text-yellow-600">জ্ঞানের ধারায় জীবনের পথ</p>
       </div>
       <div className="border-t border-dashed border-gray-400 my-2" />
       <p className="text-xs font-bold text-gray-700">

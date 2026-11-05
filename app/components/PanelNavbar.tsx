@@ -56,7 +56,7 @@ export default function PanelNavbar({
               Farmer Kamol
             </span>
             <span className="text-[10px] md:text-sm text-yellow-300 whitespace-nowrap">
-              খামার থেকে আপনার দরজায়
+              জ্ঞানের ধারায় জীবনের পথ
             </span>
           </div>
         </Link>

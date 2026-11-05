@@ -355,7 +355,7 @@ export default function HeroSlider({
     <div className="bg-green-900">
       <h1 className="sr-only">
       Farmer Kamol – কৃষক কমল | সিরাজগঞ্জের রায়গঞ্জ থেকে খাঁটি মধু, দেশি ঘি, সরিষার তেল
-        ও চীন হাঁসের বাচ্চা, সরাসরি খামার থেকে আপনার দরজায়
+        ও চীন হাঁসের বাচ্চা, সরাসরি জ্ঞানের ধারায় জীবনের পথ
       </h1>
 
       {/* ── PC LAYOUT ── */}

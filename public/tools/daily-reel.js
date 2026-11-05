@@ -621,10 +621,10 @@
     function readBrand() {
       const v = (id, d) => { const e = $(id); return e && String(e.value).trim() ? String(e.value).trim() : d; };
       return {
-        name: v("dpBrandName", "Farmer Kamol"), sub: v("dpBrandSub", "খামার থেকে আপনার দরজায়"),
+        name: v("dpBrandName", "Farmer Kamol"), sub: v("dpBrandSub", "জ্ঞানের ধারায় জীবনের পথ"),
         tag: v("dpBrandTagline", ""), fb: v("dpLinkFb", "facebook.com/farmerkamol"),
         web: v("dpLinkWeb", "farmerkamol.com"), yt: v("dpLinkYt", "youtube.com/@Farmerkamol"),
-        foot: v("dpBrandFooter", "খামার থেকে আপনার দরজায়  •  কৃষিই প্রাণ"),
+        foot: v("dpBrandFooter", "জ্ঞানের ধারায় জীবনের পথ  •  কৃষিই প্রাণ"),
       };
     }
     function drawOutro(ctx, local, K) {

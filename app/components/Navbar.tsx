@@ -27,7 +27,7 @@ const uiDict = {
     login: "লগইন করুন",
     register: "নতুন অ্যাকাউন্ট খুলুন",
     langSwitch: "English",
-    tagline: "খামার থেকে আপনার দরজায়",
+    tagline: "জ্ঞানের ধারায় জীবনের পথ",
   },
   en: {
     search: "Search...",

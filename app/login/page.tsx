@@ -271,7 +271,7 @@ export default function LoginPage() {
             {siteConfig.brand.name}
           </h1>
           <p className="text-sm text-yellow-600 mt-1">
-            খামার থেকে আপনার দরজায়
+            জ্ঞানের ধারায় জীবনের পথ
           </p>
         </div>
 

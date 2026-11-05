@@ -86,7 +86,7 @@ export default function RegisterPage() {
             {siteConfig.brand.name}
           </h1>
           <p className="text-sm text-yellow-600 mt-1">
-            খামার থেকে আপনার দরজায়
+            জ্ঞানের ধারায় জীবনের পথ
           </p>
         </div>
         <h2 className="text-xl font-bold text-gray-800 mb-6">
