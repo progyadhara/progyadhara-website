@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+/* প্রজ্ঞাধারা ব্র্যান্ড রঙ: ইন্ডিগো #1F2A5A, গোল্ড #E0A526, ক্রিম #FFF8EC
+   পুরো সাইটের green-* ক্লাস এখন ইন্ডিগো স্কেল দেখাবে */
+@theme {
+  --color-green-50: #eef0f8;
+  --color-green-100: #dde1f0;
+  --color-green-200: #bcc4e1;
+  --color-green-300: #94a0cc;
+  --color-green-400: #6b7ab5;
+  --color-green-500: #4a5ba6;
+  --color-green-600: #364486;
+  --color-green-700: #2a3873;
+  --color-green-800: #1f2a5a;
+  --color-green-900: #161e42;
+  --color-green-950: #0e1329;
+
+  --color-brand-gold: #e0a526;
+  --color-brand-cream: #fff8ec;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -45,13 +64,13 @@ input:disabled {
   outline: none;
 }
 :focus-visible {
-  outline: 2px solid #15803d;
+  outline: 2px solid #1f2a5a;
   outline-offset: 2px;
 }
 
 ::selection {
-  background-color: #bbf7d0;
-  color: #14532d;
+  background-color: #f6e3b0;
+  color: #1f2a5a;
 }
 
 a,
