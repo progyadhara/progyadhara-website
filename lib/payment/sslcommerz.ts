@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { siteConfig } from "@/lib/siteConfig";
 
 // ✅ .env-এ SSLCOMMERZ_MODE=sandbox/production বদলালেই environment বদলে যাবে, কোড ছুঁতে হবে না
 const SSLCOMMERZ_MODE = process.env.SSLCOMMERZ_MODE || "sandbox";
@@ -63,11 +64,11 @@ export async function initiateSslcommerzSession(params: {
     cancel_url: `${params.appBaseUrl}/api/payment/sslcommerz/cancel`,
     ipn_url: `${params.appBaseUrl}/api/payment/sslcommerz/ipn`,
     shipping_method: "NO",
-    product_name: "Farmer Kamol Order",
-    product_category: "Agro Products",
+    product_name: `${siteConfig.brand.nameEn} Order`,
+    product_category: "Religious Books",
     product_profile: "general",
     cus_name: params.customerName || "Customer",
-    cus_email: `${params.customerPhone}@farmerkamol.com`, // ✅ আমাদের সাইটে ইমেইল সংগ্রহ হয় না, তাই placeholder
+    cus_email: `${params.customerPhone}@${siteConfig.domain.host}`, // ✅ আমাদের সাইটে ইমেইল সংগ্রহ হয় না, তাই placeholder
     cus_add1: params.customerAddress || "Bangladesh",
     cus_phone: params.customerPhone,
     cus_country: "Bangladesh",

@@ -10,7 +10,7 @@ interface RichTextFieldProps {
 
 const COLORS = [
   { label: "লাল", value: "#dc2626" },
-  { label: "সবুজ", value: "#16a34a" },
+  { label: "সবুজ", value: "#1F2A5A" },
   { label: "নীল", value: "#2563eb" },
   { label: "হলুদ", value: "#ca8a04" },
   { label: "কালো", value: "#000000" },

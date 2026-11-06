@@ -76,7 +76,7 @@ export async function sendPushToCustomers(
     title,
     body,
     url,
-    tag: "farmer-kamol-update",
+    tag: "progyadhara-update",
   });
 
   await Promise.all(

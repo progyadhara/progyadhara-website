@@ -225,12 +225,12 @@ export default function ContactPage() {
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 sm:h-16">
           <path
             d="M0 40 C240 80, 480 0, 720 40 C960 80, 1200 0, 1440 40 L1440 80 L0 80 Z"
-            fill="#166534"
+            fill="#3B4675"
             opacity="0.12"
           />
           <path
             d="M0 55 C240 90, 480 20, 720 55 C960 90, 1200 20, 1440 55 L1440 80 L0 80 Z"
-            fill="#166534"
+            fill="#3B4675"
             opacity="0.18"
           />
         </svg>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { siteConfig } from "@/lib/siteConfig";
 
 interface Video {
   id: number;
@@ -18,8 +19,8 @@ const MOBILE_INITIAL = 6; // 2 columns x 3 rows
 
 export default function VideoGalleryClient({
   videos,
-  youtubeChannelUrl = "https://www.youtube.com/@FarmerKamol",
-  facebookPageUrl = "https://www.facebook.com/farmerkamol",
+  youtubeChannelUrl = siteConfig.social.youtube,
+  facebookPageUrl = siteConfig.social.facebook,
 }: {
   videos: Video[];
   youtubeChannelUrl?: string;

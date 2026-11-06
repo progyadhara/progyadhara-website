@@ -8,7 +8,7 @@ export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: `Video Gallery - ${siteConfig.brand.nameEn}`,
-  description: `Watch videos from ${siteConfig.brand.nameEn}'s YouTube channel — our farm, products, and daily work.`,
+  description: `Watch videos from ${siteConfig.brand.nameEn}'s YouTube channel — readings and explanations of the Bhagavad Gita and other scriptures.`,
   alternates: {
     canonical: "/en/media/video",
     languages: {
@@ -28,9 +28,9 @@ export default async function MediaVideoPage() {
   ]);
 
   const youtubeChannelUrl =
-    systemSettings?.youtubeChannelUrl || "https://www.youtube.com/@FarmerKamol";
+    systemSettings?.youtubeChannelUrl || siteConfig.social.youtube;
   const facebookPageUrl =
-    systemSettings?.facebookPageUrl || "https://www.facebook.com/farmerkamol";
+    systemSettings?.facebookPageUrl || siteConfig.social.facebook;
 
   return (
     <div>

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { siteConfig } from "@/lib/siteConfig";
 
 function getMobileTitle(pathname: string): string {
   const map: { prefix: string; title: string }[] = [
@@ -46,14 +47,14 @@ export default function PanelNavbar({
         >
           <Image
             src="/uploads/logo.png"
-            alt="Farmer Kamol"
+            alt={siteConfig.brand.name}
             width={36}
             height={36}
             className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover border-2 border-white-400"
           />
           <div className="flex flex-col leading-tight">
             <span className="text-base md:text-xl font-extrabold text-white drop-shadow-lg whitespace-nowrap">
-              Farmer Kamol
+              {siteConfig.brand.nameBn}
             </span>
             <span className="text-[10px] md:text-sm text-yellow-300 whitespace-nowrap">
               জ্ঞানের ধারায় জীবনের পথ

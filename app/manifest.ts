@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Farmer Kamol - জ্ঞানের ধারায় জীবনের পথ",
-    short_name: "Farmer Kamol",
+    name: "প্রজ্ঞাধারা - জ্ঞানের ধারায় জীবনের পথ",
+    short_name: "প্রজ্ঞাধারা",
     description:
-      "সিরাজগঞ্জের রায়গঞ্জ থেকে সরাসরি খাঁটি দেশি পণ্য, ন্যায্য মূল্যে।",
+      "ধর্মীয় বই ও পূজা উপকরণের বিশ্বস্ত অনলাইন প্ল্যাটফর্ম। সারা বাংলাদেশে হোম ডেলিভারি।",
       id: "/",
       lang: "bn",
       dir: "ltr",
@@ -13,9 +13,9 @@ export default function manifest(): MetadataRoute.Manifest {
       start_url: "/",
       display: "standalone",
       orientation: "portrait",
-      background_color: "#ffffff",
+      background_color: "#FFF8EC",
       theme_color: "#1F2A5A",
-      categories: ["shopping", "food"],
+      categories: ["shopping", "books", "education"],
       icons: [
         {
           src: "/icons/icon-192.png",

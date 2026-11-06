@@ -35,13 +35,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = await getProduct(slug);
   if (!product) {
-    return { title: "পণ্য পাওয়া যায়নি - Farmer Kamol" };
+    return { title: `পণ্য পাওয়া যায়নি - ${siteConfig.brand.nameBn}` };
   }
   return {
-    title: `${product.name} - Farmer Kamol`,
+    title: `${product.name} - ${siteConfig.brand.nameBn}`,
     description:
       product.description?.slice(0, 160) ||
-      `${product.name} কিনুন Farmer Kamol থেকে — খামার থেকে সরাসরি আপনার দরজায়।`,
+      `${product.name} কিনুন ${siteConfig.brand.nameBn} থেকে — সারা বাংলাদেশে হোম ডেলিভারি।`,
     alternates: {
       canonical: `/shop/${slug}`,
       languages: {
@@ -89,13 +89,13 @@ export default async function ProductDetailPage({
     image: product.images.map((img) => img.imageUrl),
     description:
       product.description ||
-      `${product.name} — Farmer Kamol থেকে সরাসরি খামার থেকে, সিরাজগঞ্জ।`,
+      `${product.name} — ${siteConfig.brand.nameBn} থেকে, সারা বাংলাদেশে হোম ডেলিভারি।`,
     sku: product.slug,
     category: product.category?.name,
     alternateName: product.nameBanglish || undefined,
     brand: {
       "@type": "Brand",
-      name: "Farmer Kamol",
+      name: siteConfig.brand.name,
     },
     ...(product.priceType === "FIXED" && {
       offers: {

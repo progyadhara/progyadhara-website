@@ -61,7 +61,7 @@ export default async function LandingPage({
           : `${siteConfig.domain.url}${img.startsWith("/") ? "" : "/"}${img}`
         : undefined,
       url: `${shopBase}/${p.slug}`,
-      brand: { "@type": "Brand", name: "Farmer Kamol" },
+      brand: { "@type": "Brand", name: siteConfig.brand.name },
       ...(p.priceType === "FIXED" && {
         offers: {
           "@type": "Offer",

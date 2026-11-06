@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteConfig } from "@/lib/siteConfig";
 
 interface Video {
   id: number;
@@ -18,8 +19,8 @@ function getYoutubeId(url: string) {
 
 export default function VideoSection({
   videos,
-  youtubeChannelUrl = "https://www.youtube.com/@FarmerKamol",
-  facebookPageUrl = "https://www.facebook.com/farmerkamol",
+  youtubeChannelUrl = siteConfig.social.youtube,
+  facebookPageUrl = siteConfig.social.facebook,
 }: {
   videos: Video[];
   youtubeChannelUrl?: string;

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { connectChatSocket } from "@/lib/chatSocket";
+import { siteConfig } from "@/lib/siteConfig";
 import {
   CHAT_WELCOME_TEXT,
   CHAT_WELCOME_TEXT_EN,
@@ -380,7 +381,9 @@ export default function ChatWidget() {
               />
               <div>
                 <h3 className="font-bold text-xs sm:text-sm tracking-wide">
-                  Farmer Kamol Support
+                  {isEn
+                    ? `${siteConfig.brand.nameEn} Support`
+                    : `${siteConfig.brand.nameBn} সহায়তা`}
                 </h3>
                 <p className="text-[9px] sm:text-[10px] text-emerald-100">
                   {live

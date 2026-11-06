@@ -4,6 +4,7 @@ import { useSearchParams, usePathname } from "next/navigation";
 import QRCode from "qrcode";
 import Barcode from "react-barcode";
 import { generateCustomId } from "@/lib/orderIdUtils";
+import { siteConfig } from "@/lib/siteConfig";
 
 interface OrderItem {
   id: number;
@@ -35,17 +36,17 @@ function A4Invoice({ order, qrUrl }: { order: Order; qrUrl: string }) {
         <div className="flex items-center gap-3">
           <img
             src="/uploads/logo.png"
-            alt="Farmer Kamol"
+            alt={siteConfig.brand.name}
             className="w-16 h-16 rounded-full object-cover border-2 border-green-700"
           />
           <div>
             <h1 className="text-2xl font-extrabold text-green-800">
-              Farmer Kamol
+              {siteConfig.brand.nameBn}
             </h1>
             <p className="text-xs text-yellow-600 font-semibold">
               জ্ঞানের ধারায় জীবনের পথ
             </p>
-            <p className="text-xs text-gray-400">youtube.com/@FarmerKamol</p>
+            <p className="text-xs text-gray-400">youtube.com/{siteConfig.brand.youtubeHandle}</p>
           </div>
         </div>
         <div className="text-right">
@@ -152,7 +153,7 @@ function POSInvoice({ order, qrUrl }: { order: Order; qrUrl: string }) {
           alt="logo"
           className="w-12 h-12 rounded-full mx-auto mb-1 object-cover"
         />
-        <p className="font-extrabold text-green-800 text-base">FARMER KAMOL</p>
+        <p className="font-extrabold text-green-800 text-base">{siteConfig.brand.nameEn.toUpperCase()}</p>
         <p className="text-xs text-yellow-600">জ্ঞানের ধারায় জীবনের পথ</p>
       </div>
       <div className="border-t border-dashed border-gray-400 my-2" />
@@ -195,7 +196,7 @@ function POSInvoice({ order, qrUrl }: { order: Order; qrUrl: string }) {
       </div>
       <p className="text-center text-xs text-gray-400 mt-2">
         {" "}
-        ধন্যবাদান্তে Farmer Kamol
+        ধন্যবাদান্তে {siteConfig.brand.nameBn}
       </p>
     </div>
   );
@@ -224,7 +225,7 @@ function StickerInvoice({ order }: { order: Order }) {
           className="w-6 h-6 rounded-full object-cover"
         />
         <span className="font-extrabold text-green-800 text-xs">
-          FARMER KAMOL
+          {siteConfig.brand.nameEn.toUpperCase()}
         </span>
       </div>
 
@@ -279,7 +280,7 @@ function InvoicePage() {
       );
       setOrders(results.filter((o) => o && o.id));
       const qr = await QRCode.toDataURL(
-        "https://www.youtube.com/@FarmerKamol",
+        siteConfig.social.youtube,
         { width: 80, margin: 1 },
       );
       setQrUrl(qr);
@@ -313,7 +314,7 @@ function InvoicePage() {
     return `
       <html>
         <head>
-          <title>Invoice - Farmer Kamol</title>
+          <title>Invoice - ${siteConfig.brand.nameEn}</title>
           ${styleLinks}
           <style>
             * { box-sizing: border-box; }

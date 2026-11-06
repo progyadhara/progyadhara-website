@@ -67,7 +67,7 @@ async function main() {
 
   const superAdmin = await prisma.user.create({
     data: {
-      name: "Farmer Kamol (Admin)",
+      name: "Progyadhara (Admin)",
       phone: "01700000001",
       password: fakePasswordHash,
       role: Role.SUPER_ADMIN,

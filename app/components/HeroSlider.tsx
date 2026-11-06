@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getSavePercent } from "@/lib/pricing";
+import { siteConfig } from "@/lib/siteConfig";
 
 type Product = {
   id: number;
@@ -354,8 +355,9 @@ export default function HeroSlider({
   return (
     <div className="bg-green-900">
       <h1 className="sr-only">
-      Farmer Kamol – কৃষক কমল | সিরাজগঞ্জের রায়গঞ্জ থেকে খাঁটি মধু, দেশি ঘি, সরিষার তেল
-        ও চীন হাঁসের বাচ্চা, সরাসরি জ্ঞানের ধারায় জীবনের পথ
+        {siteConfig.brand.nameBn} – {siteConfig.brand.nameEn} | ধর্মীয় বই,
+        ধর্মগ্রন্থ ও পূজা উপকরণ, সারা বাংলাদেশে হোম ডেলিভারি।{" "}
+        {siteConfig.brand.slogan}
       </h1>
 
       {/* ── PC LAYOUT ── */}

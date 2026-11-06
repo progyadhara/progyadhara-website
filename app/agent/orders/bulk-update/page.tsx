@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { siteConfig } from "@/lib/siteConfig";
 
 const SAMPLE_CSV_STATUS =
   "Order ID,Amount,Status\nFK20260721001,850,DELIVERED\nFK20260721002,,CANCELLED\n";
@@ -45,7 +46,7 @@ export default function AgentBulkUpdatePage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "Farmer Kamol Bulk Update Sample File.csv";
+    link.download = `${siteConfig.brand.nameEn} Bulk Update Sample File.csv`;
     link.click();
     URL.revokeObjectURL(url);
   }

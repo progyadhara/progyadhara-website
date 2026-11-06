@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { siteConfig } from "@/lib/siteConfig";
 
-const FACEBOOK_LINK = "https://www.facebook.com/farmerkamol";
-const YOUTUBE_LINK = "https://www.youtube.com/@FarmerKamol";
+const FACEBOOK_LINK = siteConfig.social.facebook;
+const YOUTUBE_LINK = siteConfig.social.youtube;
 
 interface PaymentConfirmProps {
   orderId: number;
@@ -86,7 +87,7 @@ export default function PaymentConfirm({
   // 💬 WhatsApp এ পাঠানোর জন্য আগে থেকে লেখা ধন্যবাদ মেসেজ তৈরি করা
   function buildWhatsAppLink() {
     const phone = toInternationalPhone(customerPhone);
-    let message = "প্রিয় গ্রাহক, নমস্কার/আসসালামু আলাইকুম\n\n";
+    let message = "প্রিয় গ্রাহক, নমস্কার\n\n";
     message +=
       "আপনার অর্ডার #" +
       customOrderId +
@@ -102,7 +103,9 @@ export default function PaymentConfirm({
       FACEBOOK_LINK +
       "\n▶️ YouTube: " +
       YOUTUBE_LINK +
-      "\n\n— Farmer Kamol 🌾";
+      "\n\n— " +
+      siteConfig.brand.nameBn +
+      " 🙏";
 
     return "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
   }

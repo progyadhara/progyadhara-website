@@ -7,7 +7,7 @@ export default function NoticeModal() {
   // ✅ পেজ লোড হলে চেক করা হবে শেষবার কখন নোটিস দেখানো হয়েছিল
   // LCP খারাপ না হওয়ার জন্য ২.৫ সেকেন্ড পরে দেখানো হচ্ছে
   useEffect(() => {
-    const lastShown = localStorage.getItem("farmer_kamol_notice_last_shown");
+    const lastShown = localStorage.getItem("progyadhara_notice_last_shown");
     const twelveHours = 12 * 60 * 60 * 1000;
     if (!lastShown || Date.now() - parseInt(lastShown) > twelveHours) {
       const timer = setTimeout(() => {
@@ -46,11 +46,12 @@ export default function NoticeModal() {
           ✕
         </button>
 
-        <h3 className="text-2xl font-bold text-green-800 mb-4">স্বাগতম </h3>
+        <h3 className="text-2xl font-bold text-green-800 mb-4">স্বাগতম 🙏</h3>
         <p className="text-lg text-gray-700 leading-relaxed">
-          " Farmer Kamol " ওয়েব সাইটে আপনাকে স্বাগতম , আমাদের সকল পণ্য গুলো
-          পেয়ে যাবেন এখানেই !এখনই অর্ডার করুন!একই সাথে আমাদের কৃষি বিষয়ক ভিডিও
-          গুলোও দেখতে পারবেন এখানেই। "ধন্যবাদ "
+          "প্রজ্ঞাধারায় আপনাকে স্বাগতম! ধর্মীয় বই, ধর্মগ্রন্থ ও পূজা উপকরণ
+          পেয়ে যাবেন এখানেই। এখনই অর্ডার করুন! একই সাথে শ্রীমদ্ভগবদ্গীতাসহ
+          ধর্মগ্রন্থের ভিডিওগুলোও দেখতে পারবেন এখানেই। 
+          ধন্যবাদ।
         </p>
       </div>
     </div>

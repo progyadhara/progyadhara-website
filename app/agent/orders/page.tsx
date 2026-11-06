@@ -37,7 +37,7 @@ const AMOUNT_REQUIRED_STATUSES = [
   "DAMAGED",
 ];
 function getStatusPillStyle(status: string) {
-  if (status === "DELIVERED") return { bg: "#16a34a", text: "#ffffff" };
+  if (status === "DELIVERED") return { bg: "#1F2A5A", text: "#ffffff" };
   if (status === "CANCELLED") return { bg: "#dc2626", text: "#ffffff" };
   return { bg: "#ffffff", text: "#111827" };
 }

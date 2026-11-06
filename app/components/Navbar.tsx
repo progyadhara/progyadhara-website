@@ -207,7 +207,7 @@ export default function Navbar() {
             />
             <div className="flex flex-col leading-tight">
               <span className="text-white font-bold text-sm whitespace-nowrap">
-                Farmer Kamol
+                {siteConfig.brand.nameBn}
               </span>
               <span className="text-yellow-200 text-[10px] font-bold whitespace-nowrap">
                 {t.tagline}

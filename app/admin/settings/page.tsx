@@ -364,7 +364,7 @@ export default function AdminSystemSettingsPage() {
                 setSettings({ ...settings, youtubeChannelUrl: e.target.value })
               }
               onBlur={(e) => updateField("youtubeChannelUrl", e.target.value)}
-              placeholder="https://www.youtube.com/@FarmerKamol"
+              placeholder="https://www.youtube.com/@progyadhara"
               className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-green-500"
             />
           </div>
@@ -379,7 +379,7 @@ export default function AdminSystemSettingsPage() {
                 setSettings({ ...settings, facebookPageUrl: e.target.value })
               }
               onBlur={(e) => updateField("facebookPageUrl", e.target.value)}
-              placeholder="https://www.facebook.com/farmerkamol"
+              placeholder="https://www.facebook.com/progyadhara"
               className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-green-500"
             />
           </div>

@@ -72,7 +72,7 @@ export async function POST(request: Request) {
       : "";
 
     if (!slug) {
-      slug = "farmer-kamol-product";
+      slug = "progyadhara-product";
     }
 
     const uniqueSuffix = Date.now().toString().slice(-6);

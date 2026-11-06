@@ -38,7 +38,7 @@ self.addEventListener("fetch", function (event) {
 
 // ১. Push Notification হ্যান্ডলার
 self.addEventListener("push", function (event) {
-  let data = { title: "Farmer Kamol", body: "নতুন আপডেট!", url: "/" };
+  let data = { title: "প্রজ্ঞাধারা", body: "নতুন আপডেট!", url: "/" };
 
   if (event.data) {
     try {
@@ -54,7 +54,7 @@ self.addEventListener("push", function (event) {
     badge: "/uploads/logo.png",
     vibrate: [200, 100, 200],
     data: { url: data.url || "/" }, // যে লিংক ব্যাকএন্ড পাঠাবে সেটাই সেভ হবে
-    tag: data.tag || "farmer-kamol-notification",
+    tag: data.tag || "progyadhara-notification",
     renotify: true,
   };
 

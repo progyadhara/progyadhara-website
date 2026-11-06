@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { siteConfig } from "@/lib/siteConfig";
 
 // ✅ Base64 public key কে ব্রাউজারের বোঝার মতো ফরম্যাটে কনভার্ট করে
 function urlBase64ToUint8Array(base64String: string) {
@@ -85,8 +86,8 @@ export default function NotificationPermissionBanner() {
           className="flex-1 text-left text-sm font-bold hover:text-yellow-400 transition"
         >
           {isEn
-            ? "🔔 Learn everything about Farmer Kamol here"
-            : "🔔 Farmer Kamol এর সব কিছু জানুন এখানে"}
+            ? `🔔 Learn everything about ${siteConfig.brand.nameEn} here`
+            : `🔔 ${siteConfig.brand.nameBn}-এর সব কিছু জানুন এখানে`}
         </button>
         <button
           onClick={markDismissed}

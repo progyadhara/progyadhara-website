@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getSavePercent } from "@/lib/pricing";
 import { translateUnit } from "@/lib/unitTranslate";
+import { siteConfig } from "@/lib/siteConfig";
 
 type Product = {
   id: number;
@@ -343,8 +344,9 @@ export default function HeroSlider({
   return (
     <div className="bg-green-900">
       <h1 className="sr-only">
-      Farmer Kamol – কৃষক কমল | Pure honey, ghee, mustard oil, and duck chicks, delivered
-        directly from our farm in Raiganj, Sirajganj
+        {siteConfig.brand.nameEn} – {siteConfig.brand.nameBn} | Religious books,
+        sacred scriptures and puja accessories, delivered across Bangladesh.{" "}
+        {siteConfig.brand.sloganEn}
       </h1>
 
       {/* PC LAYOUT */}

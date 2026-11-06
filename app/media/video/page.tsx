@@ -8,7 +8,7 @@ export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: `ভিডিও গ্যালারি - ${siteConfig.brand.name}`,
-  description: `${siteConfig.brand.name} YouTube চ্যানেলের ভিডিওগুলো দেখুন — আমাদের খামার, পণ্য ও কার্যক্রম সম্পর্কে।`,
+  description: `${siteConfig.brand.name} YouTube চ্যানেলের ভিডিওগুলো দেখুন — শ্রীমদ্ভগবদ্গীতাসহ ধর্মগ্রন্থের পাঠ ও ব্যাখ্যা।`,
   alternates: {
     canonical: "/media/video",
     languages: {

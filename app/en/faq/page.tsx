@@ -179,7 +179,7 @@ const faqGroups = [
       {
         q: "How can I contact you?",
         a: `WhatsApp/Phone: ${siteConfig.contact.phoneDisplay}. You can also message our Facebook and YouTube (${siteConfig.brand.youtubeHandle}) pages.You can also share your feedback on our official email.
-✉️ contact@farmerkamol.com`,
+✉️ contact@progyadhara.com`,
       },
     ],
   },

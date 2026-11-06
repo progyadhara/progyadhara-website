@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { generateOTP, getOTPExpiry, hashOtp } from "@/lib/otp";
 import { sendTelegramMessage } from "@/lib/telegram";
 import { checkRateLimit, recordFailedAttempt } from "@/lib/rateLimiter";
+import { siteConfig } from "@/lib/siteConfig";
 
 export async function POST(req: Request) {
   try {
@@ -40,7 +41,7 @@ export async function POST(req: Request) {
     await recordFailedAttempt(`admin-forgot-password:${phone}`);
 
     await sendTelegramMessage(
-      `🔐 OTP for Farmer Kamol: ${otp}\n📱 Phone: ${phone}`,
+      `🔐 OTP for ${siteConfig.brand.nameEn}: ${otp}\n📱 Phone: ${phone}`,
     );
     await recordFailedAttempt(`admin-forgot-password:${phone}`);
 

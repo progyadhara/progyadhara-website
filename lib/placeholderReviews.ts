@@ -20,7 +20,7 @@ export type TestimonialItem = {
   };
   
   // মোট এতগুলো কার্ড দেখাতে আসল রিভিউয়ের সাথে নিচের তালিকা থেকে পূরণ হবে
-  const TARGET_COUNT = 5;
+  const TARGET_COUNT = 0;
   
   type Placeholder = {
     id: number;

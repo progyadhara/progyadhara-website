@@ -8,6 +8,7 @@ import { safeJsonLd } from "@/lib/jsonLd";
 import { cache } from "react";
 import ReviewForm from "@/app/en/components/ReviewForm";
 import { getSavePercent } from "@/lib/pricing";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const revalidate = 86400;
 
@@ -34,15 +35,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = await getProduct(slug);
   if (!product) {
-    return { title: "Product Not Found - Farmer Kamol" };
+    return { title: `Product Not Found - ${siteConfig.brand.nameEn}` };
   }
   const displayName = product.nameEn || product.name;
   return {
-    title: `${displayName} - Farmer Kamol`,
+     title: `${displayName} - ${siteConfig.brand.nameEn}`,
     description:
       product.descriptionEn?.slice(0, 160) ||
       product.description?.slice(0, 160) ||
-      `Buy ${displayName} from Farmer Kamol — straight from the farm to your door.`,
+      `Buy ${displayName} from ${siteConfig.brand.nameEn} — home delivery across Bangladesh.`,
     alternates: {
       canonical: `/en/shop/${slug}`,
       languages: {
@@ -93,13 +94,13 @@ export default async function ProductDetailPage({
     image: product.images.map((img) => img.imageUrl),
     description:
       displayDescription ||
-      `${displayName} — straight from the Farmer Kamol farm in Sirajganj.`,
+      `${displayName} — from ${siteConfig.brand.nameEn}, home delivery across Bangladesh.`,
     sku: product.slug,
     category: displayCategory,
     alternateName: product.nameBanglish || undefined,
     brand: {
       "@type": "Brand",
-      name: "Farmer Kamol",
+      name: siteConfig.brand.name,
     },
     ...(product.priceType === "FIXED" && {
       offers: {
@@ -112,7 +113,7 @@ export default async function ProductDetailPage({
         availability: isOutOfStock
           ? "https://schema.org/OutOfStock"
           : "https://schema.org/InStock",
-          url: `https://farmerkamol.com/en/shop/${product.slug}`,
+          url: `${siteConfig.domain.url}/en/shop/${product.slug}`,
         hasMerchantReturnPolicy: {
           "@type": "MerchantReturnPolicy",
           applicableCountry: "BD",
@@ -154,19 +155,19 @@ export default async function ProductDetailPage({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://farmerkamol.com/en",
+        item: `${siteConfig.domain.url}/en`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Shop",
-        item: "https://farmerkamol.com/en/shop",
+        item: `${siteConfig.domain.url}/en/shop`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: displayName,
-        item: `https://farmerkamol.com/en/shop/${product.slug}`,
+        item: `${siteConfig.domain.url}/en/shop/${product.slug}`,
       },
     ],
   };

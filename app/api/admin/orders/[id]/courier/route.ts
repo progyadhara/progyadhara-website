@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyAdminOrAgent } from "@/lib/adminAuth";
 import { createPathaoOrder } from "@/lib/courier/pathao";
+import { siteConfig } from "@/lib/siteConfig";
 
 // ⚠️ আপাতত sandbox demo store_id হার্ডকোড করা — production-এ যাওয়ার সময় নিজের store_id দিয়ে বদলাতে হবে
 const PATHAO_STORE_ID = Number(process.env.PATHAO_STORE_ID) || 150301;
@@ -49,7 +50,7 @@ export async function POST(
       recipientPhone: order.customer.phone,
       recipientAddress: order.deliveryAddress,
       amountToCollect,
-      itemDescription: itemDescription || "Farmer Kamol Order",
+      itemDescription: itemDescription || `${siteConfig.brand.nameEn} Order`,
       itemQuantity: order.orderItems.length,
     });
 
