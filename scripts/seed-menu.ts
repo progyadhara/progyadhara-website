@@ -7,7 +7,7 @@ dotenv.config();
 const adapter = new PrismaNeon({
   connectionString: process.env.DATABASE_URL!,
 });
-const prisma = new PrismaClient({ adapter } as any);
+const prisma = new PrismaClient({ adapter } );
 
 async function main() {
   // শুধু নেভিগেশন মেনু মুছবে, অন্য কোনো টেবিলে হাত দেবে না
