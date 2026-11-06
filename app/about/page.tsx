@@ -279,7 +279,7 @@ export default function AboutPage() {
           <Reveal className="w-full md:w-56 shrink-0 mx-auto md:mx-0">
             <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-full md:h-56 mx-auto rounded-full md:rounded-2xl overflow-hidden ring-4 ring-green-100 shadow-lg bg-[#fff8ec]">
               <Image
-                src="/uploads/logo-icon.png"
+                src="/uploads/kamol-mahato.png"
                 alt={`${siteConfig.brand.founderNameBn} - প্রতিষ্ঠাতা, ${siteConfig.brand.nameBn}`}
                 fill
                 className="object-contain p-2"
