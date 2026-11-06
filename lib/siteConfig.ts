@@ -108,6 +108,13 @@ export const siteConfig = {
     },
   },
 
+  // ব্রাউজারে সংরক্ষিত তথ্যের কী (localStorage)
+  storage: {
+    cartKey: "progyadhara_cart",
+    cartDismissKey: "progyadhara_cart_dismissed_at",
+    noticeKey: "progyadhara_notice_last_shown",
+  },
+
   // অ্যানালিটিক্স
   analytics: {
     gaId: process.env.NEXT_PUBLIC_GA_ID || "",
