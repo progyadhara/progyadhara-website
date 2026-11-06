@@ -35,6 +35,11 @@ const cspHeader = `
         { source: "/modhu", destination: "/khati-modhu", permanent: true },
         { source: "/sorisha-tel", destination: "/khati-sorisha-tel", permanent: true },
         { source: "/ghee", destination: "/khati-ghee", permanent: true },
+        {
+          source: "/development",
+          destination: "https://farmerkamol.com/development",
+          permanent: false,
+        },
       ];
     },
   

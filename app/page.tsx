@@ -104,7 +104,6 @@ export default async function HomePage() {
       <div className="bg-green-50 py-3 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-4 md:gap-10 text-green-900 text-xs md:text-sm font-bold mb-3">
-            <span>✅ ১০০% খাঁটি</span>
             <span>🚚 দ্রুত ডেলিভারি</span>
             <span>💳 ক্যাশ অন ডেলিভারি</span>
           </div>

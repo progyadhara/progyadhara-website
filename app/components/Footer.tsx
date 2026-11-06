@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/siteConfig";
 const dict = {
   bn: {
     description:
-      "সমন্বিত কৃষির মাধ্যমে প্রাকৃতিক ও স্বাস্থ্যকর খাদ্যপণ্য সরাসরি আপনার কাছে পৌঁছে দিচ্ছি।",
+      "হিন্দু ধর্মগ্রন্থ, গীতা, রামায়ণ, মহাভারত, পূজার বই ও পূজার উপকরণ, এক জায়গায়।",
     slogan: "জ্ঞানের ধারায় জীবনের পথ",
     productsHeading: "পণ্য বিভাগ",
     products: ["খাঁটি মধু", "খাঁটি ঘি", "খাঁটি সরিষার তেল", "খেজুরের গুড়", "চীনা হাঁসের বাচ্চা"],
@@ -29,8 +29,8 @@ const dict = {
   },
   en: {
     description:
-      "Delivering natural, healthy food straight from our integrated farm to your doorstep.",
-    slogan: "From Our Farm To Your Door",
+      "Hindu scriptures, Bhagavad Gita, Ramayana, Mahabharata, puja books all are one place.",
+    slogan: "The path of life in the stream of knowledge",
     productsHeading: "Products",
     products: ["Pure Honey", "Pure Ghee", "Pure Mustard Oil", "Date Palm Jaggery", "Duck Chicks"],
     serviceHeading: "Customer Service",
@@ -483,14 +483,14 @@ export default function Footer() {
             </Link>
             <span className="text-green-300">
               Developed by{" "}
-              <Link
-                href="/development"
+              <a
+                href="https://farmerkamol.com/development"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative font-semibold text-yellow-300 hover:text-yellow-200 transition before:absolute before:-inset-y-2 before:-inset-x-1 before:content-['']"
               >
                 Kamol Kumar Mahato
-              </Link>
+              </a>
             </span>
           </div>
         </div>

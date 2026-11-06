@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/siteConfig";
 
-const pageTitle = `About Us - Integrated Farming, Livestock & Crop Cultivation | ${siteConfig.brand.displayName}`;
-const pageDescription = `Learn about ${siteConfig.brand.nameEn} (${siteConfig.brand.nameBn})'s story, mission, and vision — pure honey, ghee, and mustard oil through integrated farming in ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}, delivered straight from the farm to your door.`;
+const pageTitle = `About Us - Hindu Religious Books & Spiritual Knowledge | ${siteConfig.brand.displayName}`;
+const pageDescription = `Learn about ${siteConfig.brand.nameEn} (${siteConfig.brand.nameBn})'s story, mission, and vision — an initiative to gather and spread religious knowledge through Hindu religious books, sacred scriptures and puja materials. ${siteConfig.brand.sloganEn}.`;
 const pageUrl = `${siteConfig.domain.url}/en/about`;
 const ogImage = `${siteConfig.domain.url}${siteConfig.domain.ogImage}`;
 
@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    "About Farmer Kamol",
-    "integrated farming Bangladesh",
-    "Sirajganj farm",
-    "Raiganj Sarail",
-    "pure honey Bangladesh",
-    "desi ghee",
-    "mustard oil",
+    "About Progyadhara",
+    "Hindu religious books Bangladesh",
+    "religious knowledge",
+    "sacred scriptures",
+    "puja materials",
+    "Sanatan Dharma",
+    "Gita Ramayana Mahabharata",
     siteConfig.brand.founderName,
-    "farm to door",
+    "Hindu bookstore",
   ],
   authors: [{ name: siteConfig.brand.nameEn, url: siteConfig.domain.url }],
   creator: siteConfig.brand.nameEn,

@@ -86,7 +86,7 @@ export default function RegisterPageEn() {
             {siteConfig.brand.nameEn}
           </h1>
           <p className="text-sm text-yellow-600 mt-1">
-            From Our Farm To Your Door
+            The path of life in the stream of knowledge
           </p>
         </div>
         <h2 className="text-xl font-bold text-gray-800 mb-6">

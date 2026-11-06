@@ -34,7 +34,7 @@ export const siteConfig = {
     url: "https://progyadhara.com",
     host: "progyadhara.com",
     ogImage: "/uploads/og-image.jpg",
-    logo: "/uploads/logo.png",
+    logo: "/uploads/logo-icon.png",
   },
 
   // যোগাযোগ তথ্য

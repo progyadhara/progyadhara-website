@@ -121,8 +121,8 @@ export default function AnnouncementBar() {
             <span key={i}>
               {locale === "en" ? (
                 <>
-                   Pure Honey, Pure Ghee, Pure Mustard Oil, Pure Date Palm Jaggery &
-                   Duck Chicks — straight from our farm to your door. Nomoskar / Assalamu Alaikum, Welcome
+                   Hindu scriptures, Bhagavad Gita, Ramayana, Mahabharata, puja books and
+                   puja materials, delivered to your door. Nomoskar, Welcome
                   &nbsp;
                   <a
                     href={localizeHref("/", locale)}
@@ -130,7 +130,7 @@ export default function AnnouncementBar() {
                   >
                     {siteConfig.brand.name}
                   </a>
-                  &nbsp;Family. For our products or any inquiry, WhatsApp or
+                  &nbsp;Family. For orders or any inquiry, WhatsApp or
                   call us at:&nbsp;
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
@@ -142,15 +142,15 @@ export default function AnnouncementBar() {
                 </>
               ) : (
                 <>
-                  খাঁটি মধু - খাঁটি ঘি - খাঁটি সরিষার তেল, খেজুরের খাঁটি গুড় ও হাঁসের বাচ্চা — সরাসরি
-                  জ্ঞানের ধারায় জীবনের পথ।&nbsp;নমস্কার / আসসালামুআলাইকুম,&nbsp;
+                  হিন্দু ধর্মগ্রন্থ, গীতা, রামায়ণ, মহাভারত, পূজার বই ও পূজার উপকরণ, এক জায়গায়, সরাসরি
+                  আপনার ঠিকানায়।&nbsp;নমস্কার,&nbsp;
                   <a
                     href={localizeHref("/", locale)}
                     className="text-yellow-400 font-bold hover:underline"
                   >
                     {siteConfig.brand.name}
                   </a>
-                  &nbsp;পরিবারে স্বাগতম। আমাদের পণ্য ও যেকোনো প্রয়োজনে WhatsApp
+                  &nbsp;পরিবারে স্বাগতম। অর্ডার বা যেকোনো প্রয়োজনে WhatsApp
                   অথবা কল করুন:&nbsp;
                   <a
                     href={`tel:${siteConfig.contact.phone}`}

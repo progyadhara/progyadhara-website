@@ -50,23 +50,68 @@ function Reveal({
 }
 
 /* ============================================================
+   ছবি বা প্লেসহোল্ডার — src খালি ("") থাকলে সুন্দর একটা রঙিন ব্লক দেখাবে।
+   ছবি পেলে শুধু নিচের তালিকার src-এ ফাইলের পাথ বসালেই ছবি চলে আসবে।
+   ============================================================ */
+function MediaBox({
+  src,
+  alt,
+  emoji,
+  sizes,
+  priority = false,
+  className = "object-cover",
+}: {
+  src: string;
+  alt: string;
+  emoji: string;
+  sizes: string;
+  priority?: boolean;
+  className?: string;
+}) {
+  if (src) {
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        className={className}
+      />
+    );
+  }
+  return (
+    <div
+      role="img"
+      aria-label={alt}
+      className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-700 via-green-800 to-green-900"
+    >
+      <span className="text-6xl sm:text-7xl drop-shadow">{emoji}</span>
+    </div>
+  );
+}
+
+/* ============================================================
    হেডারের ৩টি ছবি — মোবাইলে অটো-স্লাইড, পিসিতে একসাথে
    ============================================================ */
 const heroGallery = [
   {
-    src: "/uploads/header-1st-about.jpg",
-    alt: "Farmer Kamol সিরাজগঞ্জ এর প্রথম কৃষক রূপে প্রকাশিত",
-    caption: "প্রথম কৃষক রূপে প্রকাশিত ",
+    src: "", // ছবি পেলে এখানে যেমন: "/uploads/about-hero-1.jpg"
+    emoji: "📖",
+    alt: "প্রজ্ঞাধারা হিন্দু ধর্মগ্রন্থ ও ধর্মীয় বই",
+    caption: "ধর্মগ্রন্থ ও ধর্মীয় বই",
   },
   {
-    src: "/uploads/header-2nd-about.jpg",
-    alt: "Farmer Kamol পশুপালন সারইল গ্রাম",
-    caption: "পশু ও প্রকৃতি",
+    src: "",
+    emoji: "🪔",
+    alt: "প্রজ্ঞাধারা পূজার উপকরণ",
+    caption: "পূজার উপকরণ",
   },
   {
-    src: "/uploads/header-3rd-about.jpg",
-    alt: "Farmer Kamol ফসলের মাঠ রায়গঞ্জ",
-    caption: "ভাতিজার সাথে",
+    src: "",
+    emoji: "🕉️",
+    alt: "প্রজ্ঞাধারা ধর্মীয় জ্ঞান আহরণ ও বিস্তার",
+    caption: "ধর্মীয় জ্ঞান",
   },
 ];
 
@@ -84,18 +129,17 @@ function MobileHeroSlider() {
     <div className="md:hidden relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
       {heroGallery.map((img, i) => (
         <div
-          key={img.src}
+          key={img.caption}
           className={`absolute inset-0 transition-opacity duration-1000 ${
             i === active ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Image
+          <MediaBox
             src={img.src}
             alt={img.alt}
-            fill
+            emoji={img.emoji}
             sizes="100vw"
             priority={i === 0}
-            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
           <p className="absolute bottom-3 left-4 text-white text-sm font-semibold drop-shadow">
@@ -104,9 +148,9 @@ function MobileHeroSlider() {
         </div>
       ))}
       <div className="absolute bottom-3 right-4 flex gap-1.5">
-        {heroGallery.map((_, i) => (
+        {heroGallery.map((img, i) => (
           <span
-            key={i}
+            key={img.caption}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               i === active ? "w-5 bg-yellow-400" : "w-1.5 bg-white/70"
             }`}
@@ -122,16 +166,15 @@ function DesktopHeroGrid() {
     <div className="hidden md:grid grid-cols-3 gap-5">
       {heroGallery.map((img) => (
         <div
-          key={img.src}
+          key={img.caption}
           className="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-md"
         >
           <div className="absolute inset-0 animate-kenburns">
-            <Image
+            <MediaBox
               src={img.src}
               alt={img.alt}
-              fill
+              emoji={img.emoji}
               sizes="33vw"
-              className="object-cover"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -161,67 +204,58 @@ function DesktopHeroGrid() {
 }
 
 /* ============================================================
-   সমন্বিত কৃষির ৩টি ব্লক — ডানে/বামে/ডানে ছবি
+   প্রজ্ঞাধারার সংগ্রহের ৩টি ব্লক — ডানে/বামে/ডানে ছবি
    ============================================================ */
-const ecosystem = [
+const collection = [
   {
     id: 1,
-    title: "সমন্বিত কৃষি ও ফসল চাষ",
+    title: "ধর্মগ্রন্থ ও শাস্ত্র",
+    emoji: "📜",
     shortDesc:
-      "ধান, মৌসুমি শাকসবজি ও পশুখাদ্যের ঘাস — একই জমিতে বহুমুখী, প্রাকৃতিক পদ্ধতিতে উৎপাদন, যেখান থেকেই আসে আমাদের খাঁটি সরিষার তেলের কাঁচামাল।",
-    fullDesc: `ধান, মৌসুমি শাকসবজি ও পশুখাদ্যের ঘাস — একই জমিতে বহুমুখী, প্রাকৃতিক পদ্ধতিতে উৎপাদন, যেখান থেকেই আসে আমাদের খাঁটি সরিষার তেলের কাঁচামাল।
-
-আমাদের খামারে কোনো কৃত্রিম রাসায়নিক সার বা বিষাক্ত কীটনাশক ব্যবহার করা হয় না। ধান, সরিষা, সবজি ও ঘাস একসাথে চাষ করে মাটির পুষ্টির ভারসাম্য বজায় রাখা হয়। ফসলের অবশিষ্টাংশ পশুখাদ্য হিসেবে ব্যবহৃত হয়, আর পশুর জৈব বর্জ্য আবার মাটিতে ফিরে আসে।
-
-এই সম্পূর্ণ প্রাকৃতিক চক্রের কারণেই আমাদের সরিষার তেল, শাকসবজি ও অন্যান্য ফসল পায় তার আসল স্বাদ ও সর্বোচ্চ পুষ্টিগুণ। বাজারের কেমিক্যালযুক্ত পণ্যের বিপরীতে আমরা দিই সম্পূর্ণ বিষমুক্ত ও খাঁটি কৃষিপণ্য।`,
-    image: "/uploads/about-1st-sub.jpg",
+      "গীতা, রামায়ণ, মহাভারত ও পুরাণের মতো ধর্মগ্রন্থ — ধর্মীয় জ্ঞানের মূল উৎস, যা পড়ার মাধ্যমে ধর্মকে সঠিকভাবে জানা যায়।",
+    fullDesc: `গীতা, রামায়ণ, মহাভারত ও পুরাণের মতো ধর্মগ্রন্থ — ধর্মীয় জ্ঞানের মূল উৎস, যা পড়ার মাধ্যমে ধর্মকে সঠিকভাবে জানা যায়।\n\nধর্মগ্রন্থই ধর্মীয় জ্ঞানের ভিত্তি। এই গ্রন্থগুলোর শিক্ষা, আদর্শ ও কাহিনির মধ্য দিয়েই ধর্মের আসল রূপ উপলব্ধি করা যায়।\n\nপ্রজ্ঞাধারার লক্ষ্য এই ধর্মগ্রন্থগুলো আগ্রহী পাঠকের হাতে সহজে পৌঁছে দেওয়া, যাতে যে কেউ নিজের ধর্মকে মূল উৎস থেকে জানতে পারেন।`,
+    image: "", // ছবি পেলে যেমন: "/uploads/about-collection-1.jpg"
     side: "right" as const,
   },
   {
     id: 2,
-    title: "পশু ও হাঁস-পাখি পালন",
+    title: "ধর্মীয় বই ও পাঠসামগ্রী",
+    emoji: "📚",
     shortDesc:
-      "দেশি গরু, ছাগল ও চীন হাঁস পালনের মাধ্যমে দুধ, ডিম, মাংস এবং জৈব বর্জ্য উৎপাদিত হয় — যা থেকেই তৈরি হয় আমাদের ভেজালমুক্ত দেশি ঘি।",
-    fullDesc: `দেশি গরু, ছাগল ও চীন হাঁস পালনের মাধ্যমে দুধ, ডিম, মাংস এবং জৈব বর্জ্য উৎপাদিত হয় — যা থেকেই তৈরি হয় আমাদের ভেজালমুক্ত দেশি ঘি।
-
-আমাদের গরু-ছাগল ও হাঁস-মুরগি প্রাকৃতিক ঘাস ও ফসলের অবশিষ্টাংশ খেয়ে বেড়ে ওঠে। কোনো হরমোন বা কৃত্রিম খাদ্য সংযোজন করা হয় না। তাই তাদের দুধ থেকে তৈরি ঘি ও ডিম থাকে সম্পূর্ণ খাঁটি ও পুষ্টিকর।
-
-পশুর জৈব বর্জ্য সরাসরি জৈব সার হিসেবে মাটিতে ফিরে যায়, যা পরবর্তী ফসলের উৎপাদনকে আরও উর্বর করে তোলে। এই চক্রই আমাদের সমন্বিত কৃষির অন্যতম মূল শক্তি।`,
-    image: "/uploads/about-2nd-sub.jpg",
+      "ধর্মের দর্শন, শিক্ষা ও জীবনচর্চা নিয়ে লেখা বই — যেগুলো পড়ে ধর্মীয় জ্ঞান আরও গভীর ও সমৃদ্ধ হয়।",
+    fullDesc: `ধর্মের দর্শন, শিক্ষা ও জীবনচর্চা নিয়ে লেখা বই — যেগুলো পড়ে ধর্মীয় জ্ঞান আরও গভীর ও সমৃদ্ধ হয়।\n\nধর্মগ্রন্থের পাশাপাশি ধর্মীয় বই ও পাঠসামগ্রী ধর্মের বিষয়গুলো সহজভাবে বুঝতে সাহায্য করে। নতুন পাঠক থেকে শুরু করে যিনি ধর্ম নিয়ে আরও জানতে চান, সবার জন্যই এমন বই জরুরি।\n\nবই বিক্রির মাধ্যমে ধর্মের সাথে যুক্ত থেকে ধর্মীয় জ্ঞান ছড়িয়ে দেওয়াই প্রজ্ঞাধারার মূল কাজ।`,
+    image: "",
     side: "left" as const,
   },
   {
     id: 3,
-    title: "মাটি ও বর্জ্য পুনর্ব্যবহার",
+    title: "পূজার উপকরণ",
+    emoji: "🪔",
     shortDesc:
-      "পশুর জৈব বর্জ্য জৈব সার হয়ে আবার মাটিতে ফিরে যায়, মাটির উর্বরতা বাড়ায় — আর নতুন ফসলের চক্র শুরু হয় সম্পূর্ণ রাসায়নিকমুক্তভাবে।",
-    fullDesc: `পশুর জৈব বর্জ্য জৈব সার হয়ে আবার মাটিতে ফিরে যায়, মাটির উর্বরতা বাড়ায় — আর নতুন ফসলের চক্র শুরু হয় সম্পূর্ণ রাসায়নিকমুক্তভাবে।
-
-আমাদের খামারে কোনো কৃত্রিম সারের প্রয়োজন হয় না। গরু-ছাগলের গোবর ও হাঁস-মুরগির বর্জ্য প্রাকৃতিকভাবে কম্পোস্ট হয়ে মাটিকে পুষ্ট করে। ফলে মাটির প্রাণশক্তি বজায় থাকে এবং ফসলের গুণগত মান অনেক উন্নত হয়।
-
-এই বর্জ্য পুনর্ব্যবহারের মাধ্যমে আমরা শুধু পরিবেশ রক্ষা করি না, বরং সম্পূর্ণ রাসায়নিকমুক্ত ফসল উৎপাদন করতে পারি। মাটি, পশু ও ফসলের এই অবিচ্ছিন্ন সম্পর্কই আমাদের সমন্বিত কৃষির ভিত্তি।`,
-    image: "/uploads/about-1st-sub.jpg",
+      "পূজা ও ধর্মীয় আচারের প্রয়োজনীয় উপকরণ — ধর্মচর্চাকে সহজ ও সুন্দর করতে।",
+    fullDesc: `পূজা ও ধর্মীয় আচারের প্রয়োজনীয় উপকরণ — ধর্মচর্চাকে সহজ ও সুন্দর করতে।\n\nধর্মীয় জ্ঞান শুধু পড়ার বিষয় নয়, চর্চারও বিষয়। পূজা ও ধর্মীয় আচার পালনের জন্য প্রয়োজনীয় উপকরণ হাতের কাছে থাকলে সেই চর্চা সহজ হয়।\n\nতাই বইয়ের পাশাপাশি পূজার উপকরণও প্রজ্ঞাধারার সংগ্রহের অংশ, যাতে জ্ঞান ও চর্চা — দুটোই এক জায়গা থেকে পাওয়া যায়।`,
+    image: "",
     side: "right" as const,
   },
 ];
 
 export default function AboutPage() {
-  // এখানে See More-এর জন্য স্টেটটি যুক্ত করা হলো
+  // See More-এর জন্য স্টেট
   const [showMore, setShowMore] = useState(false);
-  // এটি একটি অবজেক্ট স্টেট, যা প্রতিটি আইডির জন্য আলাদাভাবে true/false ট্র্যাক করবে
+  // প্রতিটি ব্লকের জন্য আলাদাভাবে খোলা/বন্ধ অবস্থা ট্র্যাক করে
   const [expandedSections, setExpandedSections] = useState<
     Record<number, boolean>
   >({});
   const toggleSection = (id: number) => {
     setExpandedSections((prev) => ({
       ...prev,
-      [id]: !prev[id], // যে আইডিতে ক্লিক করা হবে, শুধু সেটির অবস্থা উল্টে যাবে (true থাকলে false, false থাকলে true)
+      [id]: !prev[id], // যে আইডিতে ক্লিক করা হবে, শুধু সেটির অবস্থা উল্টে যাবে
     }));
   };
 
   return (
     <main className="bg-white text-gray-800 font-[family-name:var(--font-hind-siliguri)]">
-      {/* ===== ১. হেডার — ৩টি ছবি (নাম/ব্যাকগ্রাউন্ড হিরো নেই) ===== */}
+      {/* ===== ১. হেডার — ৩টি ছবি ===== */}
       <section className="bg-green-50">
         <div className="max-w-6xl mx-auto px-4 pt-10 pb-8 sm:pt-14 sm:pb-10">
           <Reveal className="text-center mb-6 sm:mb-8">
@@ -229,8 +263,7 @@ export default function AboutPage() {
               আমাদের সম্পর্কে
             </p>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-900 leading-snug">
-            সিরাজগঞ্জের মাটি থেকে আপনার রান্নাঘর পর্যন্ত — Farmer Kamol
-            (কৃষক কমল)-এর যাত্রা
+              {siteConfig.brand.nameBn} — ধর্মীয় জ্ঞান আহরণ ও ছড়িয়ে দেওয়ার যাত্রা
             </h1>
           </Reveal>
           <Reveal delay={100}>
@@ -244,12 +277,12 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto px-4 py-14 sm:py-16">
         <div className="flex flex-col md:flex-row gap-10 items-start">
           <Reveal className="w-full md:w-56 shrink-0 mx-auto md:mx-0">
-            <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-full md:h-56 mx-auto rounded-full md:rounded-2xl overflow-hidden ring-4 ring-green-100 shadow-lg">
+            <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-full md:h-56 mx-auto rounded-full md:rounded-2xl overflow-hidden ring-4 ring-green-100 shadow-lg bg-[#fff8ec]">
               <Image
-                src="/uploads/logo.png"
-                alt={`${siteConfig.brand.founderNameBn} - প্রতিষ্ঠাতা, Farmer Kamol`}
+                src="/uploads/logo-icon.png"
+                alt={`${siteConfig.brand.founderNameBn} - প্রতিষ্ঠাতা, ${siteConfig.brand.nameBn}`}
                 fill
-                className="object-cover"
+                className="object-contain p-2"
                 sizes="(max-width: 768px) 208px, 224px"
               />
             </div>
@@ -258,11 +291,7 @@ export default function AboutPage() {
                 {siteConfig.brand.founderNameBn}
               </p>
               <p className="text-sm text-gray-500">
-                প্রতিষ্ঠাতা, {siteConfig.brand.name}
-              </p>
-              <p className="text-sm text-gray-500 mt-1">
-                {siteConfig.address.village}, {siteConfig.address.locality},{" "}
-                {siteConfig.address.region}
+                প্রতিষ্ঠাতা, {siteConfig.brand.nameBn}
               </p>
             </div>
           </Reveal>
@@ -275,38 +304,32 @@ export default function AboutPage() {
               <p>
                 <span className="font-semibold text-green-900">
                   কমল কুমার মাহাতো
-                </span>
-                , যিনি{" "}
-                <span className="font-semibold text-green-900">
-                  Farmer Kamol
                 </span>{" "}
-                নামে পরিচিত — সিরাজগঞ্জের রায়গঞ্জের সারইল গ্রামের একজন
-                কৃষিভিত্তিক উদ্যোক্তা, যিনি বিশ্বাস করেন খাঁটি খাদ্য মানুষের
-                মৌলিক অধিকার।
+                <span className="font-semibold text-green-900">
+                  {siteConfig.brand.nameBn}
+                </span>
+                -র একমাত্র উদ্যোক্তা। তিনি ধর্মীয় বই বিক্রির মাধ্যমে ধর্মের সাথে
+                যুক্ত থেকে ধর্মীয় জ্ঞান আহরণ করতে এবং সেই জ্ঞান মানুষের কাছে
+                ছড়িয়ে দিতে চান।
               </p>
               <p>
-                বাংলা সাহিত্যে স্নাতক সম্পন্ন করেছেন। ঢাকায় একটি কুরিয়ার
-                প্রতিষ্ঠানে চাকরি করলেও তাঁর শিকড় থেকে যায় গ্রামের মাটিতে।
-                নিজেকে পরিচয় দেন{" "}
-                <span className="font-semibold text-green-900">
-                  “মাটির মানুষ”
-                </span>{" "}
-                বলে।
+                {siteConfig.brand.nameBn} তাঁর সেই ইচ্ছারই বাস্তব রূপ — যেখানে
+                পাঠক ধর্মগ্রন্থ, ধর্মীয় বই ও পূজার উপকরণ এক জায়গায় পাবেন।
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ===== ৩-৬. ব্যক্তিগত যাত্রা — টাইমলাইন স্টাইল ===== */}
+      {/* ===== ৩. যাত্রার গল্প — টাইমলাইন স্টাইল ===== */}
       <section className="bg-green-50 border-y border-green-100">
         <div className="max-w-3xl mx-auto px-4 py-14 sm:py-16">
           <Reveal className="mb-10 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-green-900">
-              একটি যাত্রার গল্প
+              প্রতিষ্ঠার গল্প
             </h2>
             <p className="text-gray-500 text-sm mt-2">
-              শহরের চাকরি থেকে সিরাজগঞ্জের মাটিতে ফেরার গল্প
+              ধর্মীয় জ্ঞানের খোঁজ থেকে {siteConfig.brand.nameBn}-র জন্ম
             </p>
           </Reveal>
 
@@ -314,68 +337,51 @@ export default function AboutPage() {
             {/* উল্লম্ব টাইমলাইন থ্রেড */}
             <div className="absolute left-[9px] sm:left-[11px] top-2 bottom-2 w-0.5 bg-green-200" />
 
-            {/* ধাপ ১ — শিকড় */}
+            {/* ধাপ ১ — ভাবনা */}
             <Reveal className="relative mb-12">
               <span className="absolute -left-8 sm:-left-10 top-1 w-5 h-5 rounded-full bg-green-600 border-4 border-green-50 shadow" />
               <span className="text-xs font-bold text-green-700 tracking-wide">
-                শিকড়
+                ভাবনা
               </span>
               <h3 className="text-lg font-bold text-green-900 mt-1 mb-2">
-                সিরাজগঞ্জের সারইল গ্রামে বেড়ে ওঠা
+                ধর্মীয় জ্ঞান আহরণের ইচ্ছা
               </h3>
               <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base">
-                রায়গঞ্জ উপজেলার সারইল গ্রামে জন্ম ও বেড়ে ওঠা। বাংলা সাহিত্যে
-                স্নাতক করলেও ছোটবেলা থেকেই মাটি, ফসল আর গ্রামীণ জীবনের প্রতি
-                গভীর টান অনুভব করতেন।
+                ধর্ম সম্পর্কে জ্ঞান আহরণ করা — এই ইচ্ছা থেকেই{" "}
+                {siteConfig.brand.nameBn}-র ভাবনার শুরু। যে জ্ঞান আহরণ করা যায়,
+                তা শুধু নিজের কাছে রাখার নয়, অন্যের কাছেও পৌঁছে দেওয়ার।
               </p>
             </Reveal>
 
-            {/* ধাপ ২ — শহর বনাম টান */}
+            {/* ধাপ ২ — পথ */}
             <Reveal delay={80} className="relative mb-12">
               <span className="absolute -left-8 sm:-left-10 top-1 w-5 h-5 rounded-full bg-green-600 border-4 border-green-50 shadow" />
               <span className="text-xs font-bold text-green-700 tracking-wide">
-                শহর বনাম শিকড়
+                পথ
               </span>
               <h3 className="text-lg font-bold text-green-900 mt-1 mb-2">
-                ঢাকার চাকরি, কিন্তু মন পড়ে থাকতো গ্রামে
+                বইয়ের মাধ্যমে ধর্মের সাথে থাকা
               </h3>
               <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base mb-3">
-                জীবিকার তাগিদে ঢাকায় একটি কুরিয়ার প্রতিষ্ঠানে চাকরি করেছেন,
-                কিন্তু প্রতিটি ছুটিতে ফিরে যেতেন গ্রামের সেই চেনা মাটিতে।
+                ধর্মীয় বই বিক্রির মাধ্যমে ধর্মের সাথে যুক্ত থেকে ধর্মীয় জ্ঞান
+                বিস্তার করাই এই যাত্রার পথ।
               </p>
               <blockquote className="border-l-4 border-yellow-400 pl-4 italic text-green-900 font-semibold text-base sm:text-lg">
-                “আমি মাটির মানুষ — শহর আমাকে ধরে রাখতে পারেনি।”
+                “{siteConfig.brand.slogan}”
               </blockquote>
             </Reveal>
 
-            {/* ধাপ ৩ — মোড় ঘোরানো মুহূর্ত */}
-            <Reveal delay={160} className="relative mb-12">
-              <span className="absolute -left-8 sm:-left-10 top-1 w-5 h-5 rounded-full bg-green-600 border-4 border-green-50 shadow" />
-              <span className="text-xs font-bold text-green-700 tracking-wide">
-                মোড় ঘোরানো মুহূর্ত
-              </span>
-              <h3 className="text-lg font-bold text-green-900 mt-1 mb-2">
-                কেন Farmer Kamol শুরু করলেন?
-              </h3>
-              <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base">
-                ঢাকায় কাজ করার সময় দেখেছি, শহরের মানুষ কতটা মরিয়া হয়, এক
-                বোতল খাঁটি মধু বা ভেজালমুক্ত দেশি ঘি খুঁজে বেড়ায় — অথচ আমাদের
-                গ্রামে এই প্রকৃতির আশীর্বাদ হাতের কাছেই। এই দূরত্ব ঘুচিয়ে, কোনো
-                মধ্যস্থতাকারী ছাড়া, সরাসরি খামার থেকে মানুষের দরজায় খাঁটি পণ্য
-                পৌঁছে দিতেই জন্ম হয় Farmer Kamol-এর।
-              </p>
-            </Reveal>
-
-            {/* ধাপ ৪ — যাত্রার প্রথম ধাপ */}
-            <Reveal delay={240} className="relative">
+            {/* ধাপ ৩ — নতুন যাত্রা */}
+            <Reveal delay={160} className="relative">
               <span className="absolute -left-8 sm:-left-10 top-1 w-5 h-5 rounded-full bg-yellow-400 border-4 border-green-50 shadow" />
               <span className="text-xs font-bold text-green-700 tracking-wide">
-                অধ্যায় ১ · ফেব্রুয়ারি ২০২৭
+                অধ্যায় ১ · ২০২৭
               </span>
               <h3 className="text-lg font-bold text-green-900 mt-1 mb-2">
-                হাঁস পালন দিয়ে যাত্রা শুরু
+                নতুন যাত্রার শুরু
               </h3>
               <p className="text-gray-700 leading-relaxed text-[15px] sm:text-base">
+                ২০২৭ সাল থেকে {siteConfig.brand.nameBn}-র নতুন যাত্রা শুরু হচ্ছে।
                 এটা এই যাত্রার প্রথম অধ্যায়মাত্র। সময়ের সাথে নতুন নতুন অধ্যায়
                 যুক্ত হবে — সেগুলো নিয়মিত প্রকাশিত হবে আমাদের{" "}
                 <Link
@@ -390,46 +396,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== ৭. সমন্বিত কৃষি — ডানে/বামে/ডানে ছবি ===== */}
+      {/* ===== ৪. সংগ্রহ — ডানে/বামে/ডানে ছবি ===== */}
       <section className="max-w-4xl mx-auto px-4 py-14 sm:py-16">
         <Reveal className="mb-12">
           <h2 className="text-2xl font-bold text-green-900 mb-2">
-            কেন সমন্বিত কৃষি?
+            {siteConfig.brand.nameBn}-য় কী পাবেন?
           </h2>
           <div className="max-w-xl">
             <p className="text-gray-600 text-[15px] leading-relaxed whitespace-pre-line">
-              ফসল, পশু, হাঁস-পাখি ও মাটি — একে অপরের সাথে জড়িয়ে একটা সম্পূর্ণ
-              প্রাকৃতিক চক্র তৈরি করে, যেখান থেকেই আসে আমাদের প্রতিটি খাঁটি
-              কৃষিপণ্য।
+              ধর্মগ্রন্থ, ধর্মীয় বই ও পূজার উপকরণ — ধর্মীয় জ্ঞান ও ধর্মচর্চার
+              প্রয়োজনীয় জিনিস এক জায়গায় সাজিয়ে রাখাই {siteConfig.brand.nameBn}
+              -র লক্ষ্য।
               {"\n\n"}
-              বাজারে যখন কেমিক্যালের ছড়াছড়ি, তখন সমন্বিত কৃষি আমাদের দেয়
-              সম্পূর্ণ বিষমুক্ত খাবারের নিশ্চয়তা। আমাদের খামারে গবাদি পশুর জৈব
-              সার মাটিকে করে উর্বর, আর সেই সতেজ মাটিতেই কোনো বিষাক্ত কীটনাশক
-              ছাড়া বেড়ে ওঠে প্রতিটি ফসল। মাটির এই প্রাকৃতিক উর্বরতা আর আমাদের
-              কঠোর পরিশ্রমের মেলবন্ধনেই তৈরি হয় Farmer Kamol-এর প্রতিটি খাঁটি
-              পণ্য—যা আপনার ও আপনার পরিবারের সুস্বাস্থ্য নিশ্চিত করে।
+              ধর্মকে জানতে হলে প্রথমে চাই নির্ভরযোগ্য উৎস। ধর্মগ্রন্থ ও ধর্মীয়
+              বইয়ের মাধ্যমে ধর্মের শিক্ষা, দর্শন ও জীবনচর্চা সম্পর্কে জানা যায়,
+              আর সেই জ্ঞান জীবনে প্রয়োগ করতে সহায়তা করে পূজার উপকরণ।
               {showMore && (
                 <>
                   {"\n\n"}
-                  সমন্বিত কৃষিতে কোনো কৃত্রিম রাসায়নিক সার ব্যবহার করা হয় না।
-                  আমাদের খামারের হাঁস-মুরগি ও গবাদি পশুর বর্জ্য সরাসরি মাটির
-                  উর্বরতা বাড়াতে জৈব সার হিসেবে কাজ করে। আবার সেই মাটিতে ফলে ওঠা
-                  ফসলের অবশিষ্টাংশ পশুখাদ্য হিসেবে ব্যবহৃত হয়। এই সম্পূর্ণ
-                  প্রাকৃতিক চক্রের কারণেই আমাদের প্রতিটি ফসল পায় তার আসল স্বাদ ও
-                  সর্বোচ্চ পুষ্টিগুণ।
+                  ধর্মীয় জ্ঞান আহরণ একদিনের কাজ নয়, এটা একটা ধারাবাহিক যাত্রা।
+                  প্রতিটি বই সেই যাত্রার এক একটি ধাপ, যা পাঠককে ধর্মের আরও
+                  গভীরে নিয়ে যায়।
                   {"\n\n"}
-                  বর্তমান সময়ে বাজারের অধিকাংশ খাবারই কীটনাশক ও রাসায়নিকের চাদরে
-                  ঢাকা। কিন্তু সমন্বিত চাষ পদ্ধতিতে ক্ষতিকর পোকা দমনে আমরা কোনো
-                  রাসায়নিক বিষ স্প্রে করি না, বরং প্রাকৃতিক উপায়ে বালাইনাশক
-                  ব্যবহার করা হয়। ফলে মাটি, পানি ও পরিবেশ যেমন সুরক্ষিত থাকে,
-                  তেমনই আপনার পরিবারের টেবিলে পৌঁছে যায় শতভাগ বিষমুক্ত ও নিরাপদ
-                  খাদ্য।
+                  আমরা চাই, ধর্ম নিয়ে জানতে আগ্রহী প্রত্যেক মানুষ যেন নিজের
+                  প্রয়োজনের বইটি সহজে খুঁজে পান এবং সেই জ্ঞান নিজের পরিবার ও
+                  পরিচিতজনের মাঝেও ছড়িয়ে দিতে পারেন।
                   {"\n\n"}
-                  একই জমিতে বহুবিধ ফসলের সহাবস্থান আমাদের মাটির প্রাণশক্তিকে ধরে
-                  রাখে। এক ফসলী জমির মতো আমাদের খামারের মাটি কখনো ক্লান্ত বা
-                  পুষ্টিহীন হয়ে পড়ে না। আর এই সতেজ মাটি থেকেই আমরা সংগ্রহ করি
-                  আপনার পছন্দের খাঁটি সরিষার তেল, খাঁটি ঘি, মধু ও দৈনন্দিন
-                  পুষ্টিকর কৃষিপণ্য।
+                  কমল কুমার মাহাতো একাই এই উদ্যোগ পরিচালনা করেন। ধর্মের সাথে
+                  থেকে ধর্মীয় বই বিক্রি করা এবং এর মাধ্যমে ধর্মীয় জ্ঞান বিস্তার
+                  করাই তাঁর লক্ষ্য।
                 </>
               )}
             </p>
@@ -439,13 +434,13 @@ export default function AboutPage() {
               onClick={() => setShowMore(!showMore)}
               className="mt-3 text-sm font-bold text-green-700 hover:text-green-900 transition underline focus:outline-none"
             >
-              {showMore ? "কম দেখুন" : "আরও পড়ুন (See More)"}
+              {showMore ? "কম দেখুন" : "আরও পড়ুন (See More)"}
             </button>
           </div>
         </Reveal>
 
         <div className="flex flex-col gap-14 sm:gap-16">
-          {ecosystem.map((item, idx) => (
+          {collection.map((item, idx) => (
             <div key={item.id}>
               <Reveal>
                 <div
@@ -454,10 +449,10 @@ export default function AboutPage() {
                   }`}
                 >
                   <div className="relative w-full md:w-72 aspect-[4/3] rounded-2xl overflow-hidden shrink-0 shadow-md group">
-                    <Image
+                    <MediaBox
                       src={item.image}
                       alt={item.title}
-                      fill
+                      emoji={item.emoji}
                       sizes="(max-width: 768px) 100vw, 288px"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -480,13 +475,13 @@ export default function AboutPage() {
                     >
                       {expandedSections[item.id]
                         ? "কম দেখুন"
-                        : "আরও পড়ুন (See More)"}
+                        : "আরও পড়ুন (See More)"}
                     </button>
                   </div>
                 </div>
               </Reveal>
 
-              {idx < ecosystem.length - 1 && (
+              {idx < collection.length - 1 && (
                 <div className="flex justify-center mt-8">
                   <span className="text-green-700 text-lg">↓</span>
                 </div>
@@ -496,12 +491,12 @@ export default function AboutPage() {
 
           <Reveal className="flex items-center justify-center gap-2 pt-2 text-sm text-gray-500">
             <span className="text-green-700">↺</span>
-            <span>চক্র সম্পূর্ণ হয়, আবার নতুন ফসলে ফিরে যায়</span>
+            <span>জ্ঞান থেকে চর্চা, আবার নতুন জ্ঞানের খোঁজে</span>
           </Reveal>
         </div>
       </section>
 
-      {/* ===== ৮. মিশন ও ভিশন ===== */}
+      {/* ===== ৫. মিশন ও ভিশন ===== */}
       <section className="bg-green-50 border-y border-green-100">
         <div className="max-w-4xl mx-auto px-4 py-14 sm:py-16">
           <Reveal className="text-center mb-10">
@@ -516,65 +511,52 @@ export default function AboutPage() {
                 মিশন
               </h3>
               <p className="text-gray-700 leading-relaxed text-[15px]">
-                সিরাজগঞ্জের রায়গঞ্জের সারইল গ্রাম থেকে সমন্বিত কৃষি পদ্ধতিতে
-                উৎপাদিত খাঁটি মধু, দেশি ঘি ও সরিষার তেল — কোনো মধ্যস্থতাকারী
-                ছাড়াই, ন্যায্য মূল্যে সরাসরি ভোক্তার দরজায় পৌঁছে দেওয়া আমাদের
-                মূল লক্ষ্য।
+                ধর্মীয় বই, ধর্মগ্রন্থ ও পূজার উপকরণ মানুষের কাছে সহজে পৌঁছে
+                দিয়ে ধর্মীয় জ্ঞান বাড়ানো — এটাই আমাদের মূল লক্ষ্য।
               </p>
             </Reveal>
             <Reveal
               delay={100}
               className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-green-100"
             >
-              <span className="text-3xl">🌱</span>
+              <span className="text-3xl">📖</span>
               <h3 className="text-lg font-bold text-green-900 mt-3 mb-2">
                 ভিশন
               </h3>
               <p className="text-gray-700 leading-relaxed text-[15px]">
-                Farmer Kamol-কে বাংলাদেশে সততা ও প্রকৃত সমন্বিত কৃষিজীবনের একটি
-                বিশ্বস্ত ব্র্যান্ড হিসেবে প্রতিষ্ঠিত করা — শুধু একটি বিক্রয়
-                প্ল্যাটফর্ম নয়, বরং কৃষক ও ভোক্তার মধ্যে বিশ্বাসের একটি সেতু
-                হয়ে ওঠা।
+                ধর্মীয় জ্ঞানে সমৃদ্ধ একটি সমাজ গড়ে তোলা, যেখানে প্রত্যেক মানুষ
+                নিজের ধর্মকে জানার ও বোঝার সুযোগ পায়।
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ===== ৯. কৃষির দর্শন + ৫ বছরের স্বপ্ন ===== */}
-      <section className="max-w-4xl mx-auto px-4 py-14 sm:py-16 grid sm:grid-cols-2 gap-10 sm:gap-0 sm:divide-x sm:divide-gray-200">
-        <Reveal className="sm:pr-10">
+      {/* ===== ৬. আমাদের দর্শন ===== */}
+      <section className="max-w-3xl mx-auto px-4 py-14 sm:py-16 text-center">
+        <Reveal>
           <h2 className="text-sm font-bold tracking-wide text-green-700 mb-3">
-            কৃষির দর্শন
+            আমাদের দর্শন
           </h2>
-          <p className="text-gray-700 text-[15px] leading-relaxed">
-            সততা → কৃষির মাধ্যমে স্বাবলম্বিতা → পরিবেশবান্ধব ভবিষ্যৎ। যা বিক্রি
-            করি, তা নিজে বিশ্বাস করি। যা উৎপাদন করি, তা নিজে খাই।
+          <p className="text-green-900 font-semibold text-lg sm:text-xl leading-relaxed">
+            {siteConfig.brand.slogan}
           </p>
-        </Reveal>
-        <Reveal delay={100} className="sm:pl-10">
-          <h2 className="text-sm font-bold tracking-wide text-green-700 mb-3">
-            ভবিষ্যৎ স্বপ্ন (৫ বছর)
-          </h2>
-          <p className="text-gray-700 text-[15px] leading-relaxed">
-            বাংলাদেশে Farmer Kamol একটি পরিচিত ও বিশ্বস্ত নাম হয়ে উঠবে — শুধু
-            পণ্য বিক্রির ব্র্যান্ড নয়, সততা ও বাস্তব কৃষিজীবনের উদাহরণ। একদিন
-            পুরোদমে পরিবারের জমিতে ফিরে এসে সমন্বিত কৃষিকে আরও বড় পরিসরে দেখাতে
-            চাই।
+          <p className="text-gray-700 text-[15px] leading-relaxed mt-3 max-w-xl mx-auto">
+            ধর্মীয় জ্ঞানই জীবনের পথ দেখায়। সেই জ্ঞান আহরণ করা আর অন্যের কাছে
+            ছড়িয়ে দেওয়াই আমাদের কাজ।
           </p>
         </Reveal>
       </section>
 
-      {/* ===== ১০. প্রমাণ ও বিশ্বাস — YouTube / ভিডিও / ছবি ===== */}
+      {/* ===== ৭. ভিডিও / ছবি — YouTube ও গ্যালারি ===== */}
       <section className="bg-green-50 border-y border-green-100">
         <div className="max-w-3xl mx-auto px-4 py-14 sm:py-16 text-center">
           <Reveal>
             <h2 className="text-xl sm:text-2xl font-bold text-green-900 mb-3">
-              শুধু বিশ্বাস নয় — দেখুন কৃষকের বাস্তব কাজ
+              আমাদের সাথে থাকুন — ভিডিও ও ছবিতে
             </h2>
             <p className="text-gray-600 text-sm sm:text-base mb-8 max-w-md mx-auto">
-              কোথা থেকে এসেছে, কীভাবে উৎপাদিত হয়েছে — নিজের চোখে দেখুন ভিডিও ও
-              ছবিতে।
+              {siteConfig.brand.nameBn}-র ভিডিও ও ছবির আপডেট দেখুন।
             </p>
           </Reveal>
           <Reveal
@@ -605,21 +587,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== ১১. শেষ CTA ===== */}
+      {/* ===== ৮. শেষ CTA ===== */}
       <section className="max-w-4xl mx-auto px-4 py-14 sm:py-16">
         <Reveal className="bg-white border border-gray-100 rounded-2xl px-6 py-10 sm:py-12 text-center shadow-sm">
           <h2 className="text-xl sm:text-2xl font-bold text-green-900 mb-2">
-            খামারের স্বাদ আপনার টেবিলে
+            জ্ঞানের ধারায় যুক্ত হোন
           </h2>
           <p className="text-gray-500 text-sm sm:text-base mb-7">
-            খাঁটি মধু, দেশি ঘি, সরিষার তেল — সরাসরি অর্ডার করুন।
+            ধর্মগ্রন্থ, ধর্মীয় বই ও পূজার উপকরণ — সরাসরি অর্ডার করুন।
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/shop"
               className="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-3 rounded-full text-sm transition"
             >
-              পণ্য দেখুন
+              বই ও উপকরণ দেখুন
             </Link>
             <Link
               href="/contact"

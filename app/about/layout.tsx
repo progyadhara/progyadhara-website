@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/siteConfig";
 
-const pageTitle = `আমাদের সম্পর্কে - সমন্বিত কৃষি, পশুপালন ও ফসল চাষ | ${siteConfig.brand.displayName}`;
-const pageDescription = `${siteConfig.brand.name} (${siteConfig.brand.nameBn})-এর গল্প, মিশন ও ভিশন — সিরাজগঞ্জের রায়গঞ্জের সারইল গ্রাম থেকে সমন্বিত কৃষিতে খাঁটি মধু, ঘি ও সরিষার তেল সরাসরি জ্ঞানের ধারায় জীবনের পথ।`;
+const pageTitle = `আমাদের সম্পর্কে - হিন্দু ধর্মীয় বই ও ধর্মীয় জ্ঞান | ${siteConfig.brand.displayName}`;
+const pageDescription = `${siteConfig.brand.name} (${siteConfig.brand.nameBn})-এর গল্প, মিশন ও ভিশন — হিন্দু ধর্মীয় বই, ধর্মগ্রন্থ ও পূজার উপকরণের মাধ্যমে ধর্মীয় জ্ঞান আহরণ ও ছড়িয়ে দেওয়ার উদ্যোগ। ${siteConfig.brand.slogan}।`;
 const pageUrl = `${siteConfig.domain.url}/about`;
 const ogImage = `${siteConfig.domain.url}${siteConfig.domain.ogImage}`;
 
@@ -10,15 +10,15 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   keywords: [
-    "Farmer Kamol সম্পর্কে",
-    "সমন্বিত কৃষি",
-    "সিরাজগঞ্জ খামার",
-    "রায়গঞ্জ সারইল",
-    "খাঁটি মধু",
-    "দেশি ঘি",
-    "সরিষার তেল",
+    "প্রজ্ঞাধারা সম্পর্কে",
+    "হিন্দু ধর্মীয় বই",
+    "ধর্মীয় জ্ঞান",
+    "পবিত্র ধর্মগ্রন্থ",
+    "পূজার উপকরণ",
+    "সনাতন ধর্ম",
+    "গীতা রামায়ণ মহাভারত",
     siteConfig.brand.founderNameBn,
-    "কৃষক থেকে ভোক্তা",
+    "ধর্মীয় বইয়ের দোকান",
   ],
   authors: [{ name: siteConfig.brand.name, url: siteConfig.domain.url }],
   creator: siteConfig.brand.name,

@@ -8,9 +8,14 @@ export default function supabaseImageLoader({
   quality?: number;
 }) {
   // Supabase/external URL হলে সরাসরি ব্যবহার হবে, নাহলে নিজেদের ডোমেইনের সাথে জোড়া লাগানো হবে
+  // লোকাল ছবি ডেভেলপমেন্টে সরাসরি, প্রোডাকশনে নিজের ডোমেইন থেকে
+  if (!src.startsWith("http") && process.env.NODE_ENV !== "production") {
+    return src;
+  }
+
   const absoluteSrc = src.startsWith("http")
     ? src
-    : `https://farmerkamol.com${src}`;
+    : `https://progyadhara.com${src}`;
 
   const params = new URLSearchParams({
     url: absoluteSrc,
