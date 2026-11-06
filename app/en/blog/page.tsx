@@ -2,15 +2,16 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
 import Breadcrumb from "@/app/components/Breadcrumb";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const revalidate = 86400;
 
 export async function generateMetadata() {
   return {
     title:
-      "Farming Blog - Livestock, Poultry & Crop Cultivation | Farmer Kamol",
+      `Farming Blog - Livestock, Poultry & Crop Cultivation | ${siteConfig.brand.nameEn}`,
     description:
-      "Read real experiences and guides on livestock rearing, poultry farming, crop cultivation, and farm stories on the Farmer Kamol blog.",
+      `Read real experiences and guides on livestock rearing, poultry farming, crop cultivation, and farm stories on the ${siteConfig.brand.nameEn} blog.`,
     alternates: {
       canonical: "/en/blog",
       languages: {

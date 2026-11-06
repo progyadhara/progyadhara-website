@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/siteConfig";
+
 // হোমপেজের রিভিউ সেকশনের জন্য — আসল approved রিভিউ কম থাকলে পরিচিত ক্রেতাদের এই মতামত পূরণ করে।
 // আসল রিভিউ আসার সাথে সাথে একটি করে এখান থেকে সরে যায়।
 // এগুলো ডাটাবেসে বা SEO স্কিমায় যায় না — শুধু হোমপেজের ভিজ্যুয়াল সেকশনে দেখায়।
@@ -52,9 +54,9 @@ export type TestimonialItem = {
       productBn: "সরিষার তেল",
       productEn: "Mustard Oil",
       commentBn:
-        "সরিষা তেলের ৫ লিটার টা নিয়েছিলাম প্যাকেট টা সুন্দর ভাবে করা ছিলো , শুধু স্বাদ এই আলাদা না, পণ্য পাঠানোর ব্যবস্থাও টাও অনেক ভালো। ধন্যবাদ Farmer Kamol টিম কে।",
+        `সরিষা তেলের ৫ লিটার টা নিয়েছিলাম প্যাকেট টা সুন্দর ভাবে করা ছিলো , শুধু স্বাদ এই আলাদা না, পণ্য পাঠানোর ব্যবস্থাও টাও অনেক ভালো। ধন্যবাদ ${siteConfig.brand.nameBn} টিম কে।`,
       commentEn:
-        "I took the 5-litre mustard oil. The packaging was neat, and it's not just the taste that's different — the delivery arrangement is also very good. Thank you, Farmer Kamol team.",
+        `I took the 5-litre mustard oil. The packaging was neat, and it's not just the taste that's different — the delivery arrangement is also very good. Thank you, ${siteConfig.brand.nameEn} team.`,
     },
     {
       id: -3,

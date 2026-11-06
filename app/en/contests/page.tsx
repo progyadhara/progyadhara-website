@@ -1,14 +1,15 @@
 import { prisma } from "@/lib/prisma";
 import ContestList from "@/app/components/ContestList";
 import { CONTEST_TYPE_KEYS } from "@/lib/contestPublic";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const revalidate = 3600;
 
 export async function generateMetadata() {
   return {
-    title: "Contests, Offers & News | Farmer Kamol",
+    title: `Contests, Offers & News | ${siteConfig.brand.nameEn}`,
     description:
-      "See the latest contests, special offers and announcements from Farmer Kamol.",
+      `See the latest contests, special offers and announcements from ${siteConfig.brand.nameEn}.`,
     alternates: {
       canonical: "/en/contests",
       languages: { bn: "/contests", en: "/en/contests" },

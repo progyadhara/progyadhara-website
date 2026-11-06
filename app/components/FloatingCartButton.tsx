@@ -4,7 +4,8 @@ import { ShoppingCart, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPath, localizeHref } from "@/lib/i18n";
-const DISMISS_KEY = "farmer_kamol_cart_dismissed_at";
+import { siteConfig } from "@/lib/siteConfig";
+const DISMISS_KEY = siteConfig.storage.cartDismissKey;
 const RESHOW_AFTER_MS = 30 * 60 * 1000; // ৩০ মিনিট
 export default function FloatingCartButton() {
   const pathname = usePathname();
@@ -54,7 +55,7 @@ export default function FloatingCartButton() {
   };
   const checkCart = () => {
     try {
-      const saved = localStorage.getItem("farmer_kamol_cart");
+      const saved = localStorage.getItem(siteConfig.storage.cartKey);
       if (saved) {
         const items = JSON.parse(saved);
         const total = items.reduce(

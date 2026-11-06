@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { cache } from "react";
 import ContestDetail from "@/app/components/ContestDetail";
 import { plainText } from "@/lib/contestPublic";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const revalidate = 3600;
 
@@ -18,11 +19,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const item = await getItem(slug);
   if (!item || !item.isPublished || !item.titleEn || !item.contentEn) {
-    return { title: "Not found | Farmer Kamol" };
+    return { title: `Not found | ${siteConfig.brand.nameEn}` };
   }
   const image = item.posterImage || item.image;
   return {
-    title: `${item.titleEn} | Farmer Kamol`,
+    title: `${item.titleEn} | ${siteConfig.brand.nameEn}`,
     description:
       item.summaryEn || plainText(item.contentEn).slice(0, 160),
     alternates: {

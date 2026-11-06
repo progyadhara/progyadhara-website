@@ -43,7 +43,7 @@ export default async function VerifyAgreementPage({
               বৈধ চুক্তি নথি
             </h1>
             <p className="text-sm text-gray-500 mb-6">
-              এই agreementNo Farmer Kamol-এর রেকর্ডে নিশ্চিতভাবে বিদ্যমান।
+              এই agreementNo {siteConfig.brand.nameBn}-এর রেকর্ডে নিশ্চিতভাবে বিদ্যমান।
             </p>
 
             <div className="text-left bg-gray-50 rounded-xl p-4 space-y-2 text-sm">
@@ -79,7 +79,7 @@ export default async function VerifyAgreementPage({
 
             <p className="text-xs text-gray-400 mt-6">
               সম্পূর্ণ চুক্তির বিস্তারিত তথ্য শুধুমাত্র সংশ্লিষ্ট বিনিয়োগকারী ও
-              Farmer Kamol কর্তৃপক্ষ দেখতে পারেন।
+              {siteConfig.brand.nameBn} কর্তৃপক্ষ দেখতে পারেন।
             </p>
           </>
         ) : (
@@ -91,7 +91,7 @@ export default async function VerifyAgreementPage({
               নথি যাচাই করা যায়নি
             </h1>
             <p className="text-sm text-gray-500">
-              এই agreementNo Farmer Kamol-এর রেকর্ডে পাওয়া যায়নি।{" "}
+              এই agreementNo {siteConfig.brand.nameBn}-এর রেকর্ডে পাওয়া যায়নি।{" "}
               <Link
                 href={siteConfig.domain.url}
                 className="text-green-700 underline"

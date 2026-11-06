@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { translateUnit } from "@/lib/unitTranslate";
 import { getSavePercent } from "@/lib/pricing";
+import { siteConfig } from "@/lib/siteConfig";
 
 type Product = {
   id: number;
@@ -90,7 +91,7 @@ function TopSellerCard({
 
   function handleAddToCart() {
     // ✅ same cart key as bn — bn/en share one cart
-    const cart = JSON.parse(localStorage.getItem("farmer_kamol_cart") || "[]");
+    const cart = JSON.parse(localStorage.getItem(siteConfig.storage.cartKey) || "[]");
     const existing = cart.find((i: { id: number }) => i.id === product.id);
 
     if (existing) {
@@ -109,7 +110,7 @@ function TopSellerCard({
       });
     }
 
-    localStorage.setItem("farmer_kamol_cart", JSON.stringify(cart));
+    localStorage.setItem(siteConfig.storage.cartKey, JSON.stringify(cart));
     window.dispatchEvent(new CustomEvent("cartUpdated"));
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);

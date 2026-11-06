@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { getLocaleFromPath, localizeHref } from "@/lib/i18n";
 import { getSavePercent } from "@/lib/pricing";
 import { sendGAEvent } from "@next/third-parties/google";
+import { siteConfig } from "@/lib/siteConfig";
 
 type Product = {
   id: number;
@@ -138,7 +139,7 @@ export default function ProductCard({
 
   function handleAddToCart() {
     // ✅ key: "farmer_kamol_cart" — সব জায়গায় একই
-    const cart = JSON.parse(localStorage.getItem("farmer_kamol_cart") || "[]");
+    const cart = JSON.parse(localStorage.getItem(siteConfig.storage.cartKey) || "[]");
     const existing = cart.find((i: { id: number }) => i.id === product.id);
 
     if (existing) {
@@ -157,7 +158,7 @@ export default function ProductCard({
       });
     }
 
-    localStorage.setItem("farmer_kamol_cart", JSON.stringify(cart));
+    localStorage.setItem(siteConfig.storage.cartKey, JSON.stringify(cart));
     // ✅ custom event — same tab-এও কাজ করবে
     window.dispatchEvent(new CustomEvent("cartUpdated"));
 

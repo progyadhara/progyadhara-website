@@ -90,7 +90,7 @@ export default function Navbar() {
     }
   };
   const checkCart = () => {
-    const savedCart = localStorage.getItem("farmer_kamol_cart");
+    const savedCart = localStorage.getItem(siteConfig.storage.cartKey);
     if (savedCart) {
       try {
         const cartItems = JSON.parse(savedCart);

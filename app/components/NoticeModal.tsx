@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function NoticeModal() {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +14,7 @@ export default function NoticeModal() {
       const timer = setTimeout(() => {
         setIsVisible(true);
         localStorage.setItem(
-          "farmer_kamol_notice_last_shown",
+          siteConfig.storage.noticeKey,
           Date.now().toString(),
         );
       }, 2500); // ২.৫ সেকেন্ড delay

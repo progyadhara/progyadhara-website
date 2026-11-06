@@ -169,7 +169,7 @@ export default function CartPage() {
   // ✅ key fix: "farmer_kamol_cart"
   function loadCart() {
     const stored = JSON.parse(
-      localStorage.getItem("farmer_kamol_cart") || "[]",
+      localStorage.getItem(siteConfig.storage.cartKey) || "[]",
     );
     setCart(stored);
     setLoaded(true);
@@ -240,7 +240,7 @@ export default function CartPage() {
     );
     setCart(updated);
     // ✅ key fix
-    localStorage.setItem("farmer_kamol_cart", JSON.stringify(updated));
+    localStorage.setItem(siteConfig.storage.cartKey, JSON.stringify(updated));
     window.dispatchEvent(new CustomEvent("cartUpdated"));
   }
 
@@ -248,7 +248,7 @@ export default function CartPage() {
     const updated = cart.filter((item) => item.id !== id);
     setCart(updated);
     // ✅ key fix
-    localStorage.setItem("farmer_kamol_cart", JSON.stringify(updated));
+    localStorage.setItem(siteConfig.storage.cartKey, JSON.stringify(updated));
     window.dispatchEvent(new CustomEvent("cartUpdated"));
   }
 
@@ -346,7 +346,7 @@ export default function CartPage() {
         return;
       }
       // ✅ key fix
-      localStorage.removeItem("farmer_kamol_cart");
+      localStorage.removeItem(siteConfig.storage.cartKey);
       window.dispatchEvent(new CustomEvent("cartUpdated"));
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });

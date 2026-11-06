@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { siteConfig } from "@/lib/siteConfig";
 
 type Product = {
   id: number;
@@ -73,7 +74,7 @@ export default function ProductActions({
   const isOutOfStock = product.stockQty <= 0;
 
   function handleAddToCart() {
-    const cart = JSON.parse(localStorage.getItem("farmer_kamol_cart") || "[]");
+    const cart = JSON.parse(localStorage.getItem(siteConfig.storage.cartKey) || "[]");
     const existing = cart.find((i: { id: number }) => i.id === product.id);
     if (existing) {
       existing.quantity += 1;
@@ -87,7 +88,7 @@ export default function ProductActions({
         quantity: 1,
       });
     }
-    localStorage.setItem("farmer_kamol_cart", JSON.stringify(cart));
+    localStorage.setItem(siteConfig.storage.cartKey, JSON.stringify(cart));
     window.dispatchEvent(new CustomEvent("cartUpdated"));
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
