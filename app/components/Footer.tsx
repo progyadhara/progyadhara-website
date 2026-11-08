@@ -320,7 +320,7 @@ export default function Footer() {
               {t.products.map((p, i) => (
                   <Link
                     key={p}
-                    href={href(`/${productSlugs[i]}`)}
+                    href={href(productSlugs[i])}
                     className="relative flex items-center min-h-6 hover:text-green-700 transition leading-tight whitespace-nowrap before:absolute before:-inset-y-1.5 before:-inset-x-1 before:content-['']"
                   >
                     {p}

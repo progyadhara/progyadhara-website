@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: `FAQ | ${siteConfig.brand.nameEn}`,
-  description: `Common questions about ${siteConfig.brand.nameEn}'s products, orders, delivery, and returns. Learn about our pure honey, ghee, mustard oil, and duck chicks from ${siteConfig.address.regionEn}.`,
+  description: `Common questions about ${siteConfig.brand.nameEn}'s books, items, orders, payment, delivery, and returns. Learn about our religious books, scriptures, and puja items.`,
   alternates: {
     canonical: "/en/faq",
     languages: {
@@ -21,84 +21,44 @@ const faqGroups = [
     items: [
       {
         q: `Who is ${siteConfig.brand.nameEn} (${siteConfig.brand.nameBn})?`,
-        a: `${siteConfig.brand.nameEn} and ${siteConfig.brand.nameBn} are the same brand — the English and Bangla forms of one name. It is an agricultural brand based in ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}, founded by ${siteConfig.brand.founderName}, delivering pure honey, ghee, mustard oil, and duck chicks directly from the farm.`,
-      },
-      {
-        q: `What is ${siteConfig.brand.nameEn}?`,
-        a: `${siteConfig.brand.nameEn} is an agricultural brand based in ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}, delivering pure honey, ghee, mustard oil, and duck chicks directly from the farm to customers, with no middlemen.`,
-      },
-      {
-        q: `Do ${siteConfig.brand.nameEn}'s products come from your own farm?`,
-        a: `Yes. ${siteConfig.brand.nameEn}'s products are sourced from our own farm and trusted suppliers. Videos of our production and sourcing process are published on our YouTube channel.`,
-      },
-      {
-        q: `Where can I watch ${siteConfig.brand.nameEn}'s videos?`,
-        a: "We regularly publish videos of the farm, honey collection, mustard oil production, and other farming content on our YouTube channel and Facebook page.",
+        a: `${siteConfig.brand.nameEn} and ${siteConfig.brand.nameBn} are the same brand — the English and Bengali forms of one name. It is an online platform for religious books, scriptures, and puja items. Our founder is ${siteConfig.brand.founderName}. Our slogan: "${siteConfig.brand.sloganEn}".`,
       },
       {
         q: `What products does ${siteConfig.brand.nameEn} sell?`,
-        a: "We currently supply pure honey, ghee, mustard oil, and seasonal duck chicks. More farm products will be added in the future.",
+        a: "Currently we supply Hindu scriptures (such as the Gita, Ramayana, and Mahabharata), puja books, and puja items. More religious texts and items will be added in the future.",
       },
       {
-        q: `Why buy from ${siteConfig.brand.nameEn}?`,
-        a: "We place the highest priority on farm-based production, transparency, and customer trust. We regularly share information and videos about our products' source, collection, and preparation.",
+        q: `Where can I watch ${siteConfig.brand.nameEn}'s videos?`,
+        a: "We publish readings and explanations of the Bhagavad Gita and other scriptures on our YouTube channel and Facebook page. You can also watch them on the video page of this website.",
+      },
+      {
+        q: `Why buy books and items from ${siteConfig.brand.nameEn}?`,
+        a: "We offer three things: religious books and puja items in one place, home delivery across Bangladesh, and direct support on WhatsApp if anything goes wrong.",
       },
       {
         q: `What is ${siteConfig.brand.nameEn}'s goal?`,
-        a: "Our goal is to deliver safe, pure agricultural products directly to customers and to spread farming knowledge to everyone.",
-      },
-      {
-        q: "Can I see your farm's activities online?",
-        a: "Yes. We regularly publish videos of various farm activities, production processes, and educational farming content on our Facebook and YouTube channels.",
+        a: "Our goal is to make religious books and items easily available to everyone, and to spread the knowledge of the scriptures in simple language through videos.",
       },
     ],
   },
   {
-    category: "About Our Products",
+    category: "About Our Books & Items",
     items: [
       {
-        q: "What flower is your honey from?",
-        a: "We primarily supply mustard flower honey, collected seasonally.",
+        q: "Which books are available?",
+        a: "We offer Hindu scriptures such as the Gita, Ramayana, and Mahabharata, along with puja books. You can see the current list on the shop page; new books and items will be added step by step.",
       },
       {
-        q: "How can I tell if honey is pure?",
-        a: `The best way to identify pure honey is to check the source and the seller's credibility. ${siteConfig.brand.nameEn} publishes real videos of honey collection and processing, so customers get a clear picture of the production process.`,
+        q: "Which puja items are available?",
+        a: `Various essential puja items are listed on the shop page. If you cannot find a specific item, let us know on WhatsApp (${siteConfig.contact.phoneDisplay}).`,
       },
       {
-        q: "Does crystallized honey mean it's fake?",
-        a: "No. Natural honey can crystallize depending on temperature and flower source. This is not always a sign of being fake.",
+        q: "How can I find out the publisher and edition of a book?",
+        a: `Each product page shows the book's name, description, and price. If you want specific details about the publisher or edition, ask us on WhatsApp (${siteConfig.contact.phoneDisplay}) before ordering.`,
       },
       {
-        q: "How long can honey be stored?",
-        a: "Honey stays good for a long time if stored in a clean, dry container. Keep it away from direct sunlight and excess moisture.",
-      },
-      {
-        q: "How should I store mustard oil?",
-        a: "Mustard oil should be stored in a covered container in a cool, dry place. This keeps its quality intact for a long time.",
-      },
-      {
-        q: "Does a strong smell mean the mustard oil is pure?",
-        a: "Mustard oil naturally has a pungent smell. However, purity shouldn't be judged based on smell alone.",
-      },
-      {
-        q: "Where do your products come from?",
-        a: `All our products come from our own farm in ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}. You can watch the production process on our YouTube channel.`,
-      },
-      {
-        q: "Are your products adulteration-free?",
-        a: "Yes. No sugar or syrup is mixed into our honey, no vegetable oil is in our ghee, and our mustard oil is mill-pressed with nothing added.",
-      },
-      {
-        q: "How is your ghee made?",
-        a: "Our ghee is made from local cow's milk using a traditional method, with no artificial ingredients.",
-      },
-      {
-        q: "Are eggs available right now?",
-        a: "Eggs are currently out of stock. We're working to resume supply soon — follow our Facebook and YouTube pages for updates.",
-      },
-      {
-        q: "How do I order duck chicks?",
-        a: "The price of duck chicks varies by age and size, so there's no fixed price. To order, please contact us directly on WhatsApp — price and quantity will be settled through discussion. We'll confirm whether delivery is possible to your location, and payment must be completed before delivery.",
+        q: "What if a book is out of stock?",
+        a: `The product page shows when an item is out of stock. To ask about another edition or when it will be available again, contact us on WhatsApp (${siteConfig.contact.phoneDisplay}).`,
       },
     ],
   },
@@ -139,8 +99,8 @@ const faqGroups = [
         a: "Delivery within Dhaka costs 75 taka per kg (minimum 60 taka), and outside Dhaka costs 120 taka per kg (minimum 100 taka). The exact charge is shown at checkout.",
       },
       {
-        q: "Do you deliver honey and mustard oil across all of Bangladesh?",
-        a: "Yes. We deliver honey, mustard oil, and other approved products across Bangladesh via courier service.",
+        q: "Do you deliver books and items across all of Bangladesh?",
+        a: "Yes. We deliver books, puja items, and other products across Bangladesh via courier service.",
       },
       {
         q: "How will I know my order is confirmed?",
@@ -154,6 +114,10 @@ const faqGroups = [
         q: "Which areas do you deliver to?",
         a: "We deliver across all of Bangladesh via courier service.",
       },
+      {
+        q: "How are fragile items shipped?",
+        a: "Fragile items such as idols and lamps are packed carefully. If an item arrives damaged, let us know within 24 hours of delivery with photos/video; the details are in our Return Policy.",
+      },
     ],
   },
   {
@@ -161,25 +125,28 @@ const faqGroups = [
     items: [
       {
         q: "What should I do if I receive a damaged product?",
-        a: "Let us know on WhatsApp within 24-48 hours of delivery, including photos/video if possible. See our Return Policy for detailed terms.",
+        a: "Let us know on WhatsApp as soon as you receive it, including photos/video if possible. See our Return Policy for detailed terms.",
       },
       {
         q: "Can I exchange a wrongly delivered product?",
-        a: "Yes, if the wrong product was sent, we take full responsibility and will resend the correct product at no extra cost.",
+        a: "Yes, if the wrong product or edition was sent, we take full responsibility and will resend the correct product at no extra cost.",
+      },
+      {
+        q: "Can I return an opened or used product?",
+        a: "No. To protect the sanctity and quality of religious books and puja items, opened, used, or worshipped-with items cannot be returned. See our Return Policy for details.",
       },
     ],
   },
   {
-    category: "Farm & Contact",
+    category: "Address & Contact",
     items: [
       {
-        q: "Where is your farm located?",
-        a: `Our farm is located in ${siteConfig.address.villageEn} village, ${siteConfig.address.localityEn} Upazila, ${siteConfig.address.regionEn} District.`,
+        q: "Where are you located?",
+        a: `Our address is ${siteConfig.address.villageEn} village, ${siteConfig.address.localityEn} Upazila, ${siteConfig.address.regionEn} District.`,
       },
       {
         q: "How can I contact you?",
-        a: `WhatsApp/Phone: ${siteConfig.contact.phoneDisplay}. You can also message our Facebook and YouTube (${siteConfig.brand.youtubeHandle}) pages.You can also share your feedback on our official email.
-✉️ contact@progyadhara.com`,
+        a: `WhatsApp/Phone: ${siteConfig.contact.phoneDisplay}. You can also message our Facebook and YouTube (${siteConfig.brand.youtubeHandle}) pages. You can also share your feedback on our official email:\n✉️ ${siteConfig.contact.email}`,
       },
     ],
   },

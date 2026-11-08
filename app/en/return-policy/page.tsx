@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: `Return Policy | ${siteConfig.brand.nameEn}`,
-  description: `Learn about ${siteConfig.brand.nameEn}'s return, exchange, and refund policy for honey, ghee, mustard oil, and duck chicks.`,
+  description: `Learn about ${siteConfig.brand.nameEn}'s return, exchange, and refund policy for religious books, scriptures, and puja items.`,
   alternates: {
     canonical: "/en/return-policy",
     languages: {
@@ -18,12 +18,12 @@ const sections = [
   {
     title: "General Rules",
     content:
-      "Since our honey, ghee, and mustard oil are food products, opened or used items cannot be returned for safety and hygiene reasons. Returns or exchanges are accepted only in the specific cases listed below.",
+      "To protect the sanctity and quality of religious books and puja items, opened, used, or worshipped-with items cannot be returned. Returns or exchanges are accepted only in the specific cases listed below.",
   },
   {
     title: "Eligible for Return/Exchange",
     content:
-      "If a product arrives damaged (leakage, broken packaging), the wrong product was sent, or an expired product was sent — in these cases we guarantee a replacement or refund.",
+      "If a product arrives damaged (torn or wet book, damaged cover or pages, broken or cracked item, broken packaging), the wrong product or edition was sent, or there is a printing defect (missing pages, faulty binding) — in these cases we guarantee a replacement or refund.",
   },
   {
     title: "Return Timeframe",
@@ -40,18 +40,18 @@ const sections = [
       "If a refund is approved, the amount will be returned within 3-7 business days depending on the payment method. For Cash on Delivery orders, the refund will be made via bKash or Nagad.",
   },
   {
-    title: "Special Rules for Duck Chicks",
+    title: "Special Rules for Fragile Items",
     content:
-      "As these are live animals, the standard return/exchange rules do not apply to duck chicks. If a chick is found dead or seriously ill at the time of delivery, you must inform us within 24 hours of delivery with photo/video proof, and we will discuss a replacement or resolution. We are not liable for any harm resulting from inadequate care after delivery has been accepted.",
+      "If fragile items such as idols, clay or glass lamps, or kalash are found broken or cracked at delivery, you must inform us within 24 hours of delivery with photos/video of the unboxing, and we will arrange a replacement or refund. We are not liable for any damage caused by carelessness after delivery has been accepted.",
   },
   {
     title: "What Is Not Returnable",
     content:
-      "Opened or used bottles of honey, ghee, and mustard oil; failed delivery due to an incorrect address provided by the customer; complaints reported more than 48 hours after delivery; and duck chicks that were delivered healthy, are not returnable.",
+      "Opened, used, or worshipped-with items; books with writing, stains, or marks; failed delivery due to an incorrect address provided by the customer; and complaints reported more than 48 hours after delivery are not returnable.",
   },
   {
     title: "Contact",
-    content: `If you have any questions about returns, contact us on WhatsApp (${siteConfig.contact.phoneDisplay}). Our farm: ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}.`,
+    content: `If you have any questions about returns, contact us on WhatsApp (${siteConfig.contact.phoneDisplay}). Our address: ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}.`,
   },
 ];
 
