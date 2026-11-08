@@ -19,9 +19,9 @@ export default async function AdminDashboard() {
         <h1 className="text-3xl font-bold text-green-800">
           অ্যাডমিন ড্যাশবোর্ড
         </h1>
-        <div className="bg-white rounded-xl shadow px-5 py-3 border-l-4 border-emerald-600">
+        <div className="bg-white rounded-xl shadow px-5 py-3 border-l-4 border-green-600">
           <p className="text-gray-500 text-xs">লাইফটাইম মোট কালেকশন</p>
-          <p className="text-2xl font-bold text-emerald-700">
+          <p className="text-2xl font-bold text-green-700">
             ৳{lifetimeCollected.toLocaleString("bn-BD")}
           </p>
         </div>
@@ -146,11 +146,11 @@ export default async function AdminDashboard() {
           href="/tools/thumbnail-maker.html"
           target="_blank"
           rel="noopener noreferrer"
-          className="block bg-teal-700 text-white rounded-xl p-6 hover:bg-teal-600 transition"
+          className="block bg-green-700 text-white rounded-xl p-6 hover:bg-green-600 transition"
         >
           <p className="text-2xl mb-2">🎨</p>
           <p className="text-lg font-bold">ছবি এডিট করুন</p>
-          <p className="text-teal-100 text-sm mt-1">
+          <p className="text-green-100 text-sm mt-1">
             থাম্বনেইল / ইমেজ এডিটর খুলুন
           </p>
         </a>

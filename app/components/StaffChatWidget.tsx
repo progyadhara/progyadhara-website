@@ -450,7 +450,7 @@ export default function StaffChatWidget() {
     <div className="fixed right-4 bottom-20 md:bottom-6 z-[70]">
       {open && (
         <div className="bg-white w-[min(100vw-2rem,380px)] h-[min(70vh,520px)] rounded-2xl shadow-2xl flex flex-col border border-gray-200 overflow-hidden mb-3">
-          <div className="bg-[#055a36] text-white px-3 py-2.5 flex items-center justify-between gap-2 shrink-0">
+          <div className="bg-[#1f2a5a] text-white px-3 py-2.5 flex items-center justify-between gap-2 shrink-0">
             <div className="flex items-center gap-2 min-w-0">
               <div
                 className={`w-2 h-2 rounded-full shrink-0 ${live ? "bg-green-400 animate-pulse" : "bg-yellow-300"}`}
@@ -463,7 +463,7 @@ export default function StaffChatWidget() {
                       `ভিজিটর #${detail.id}`
                     : "লাইভ চ্যাট"}
                 </h3>
-                <p className="text-[10px] text-emerald-100">
+                <p className="text-[10px] text-green-100">
                   {live ? "WebSocket · লাইভ" : "সংযোগ..."}
                   {detail?.assignedTo?.name
                     ? ` · ${detail.assignedTo.name}`
@@ -571,7 +571,7 @@ export default function StaffChatWidget() {
           ) : (
             <>
               {isAdmin && (
-                <div className="px-2 py-1.5 border-b bg-emerald-50 flex items-center gap-1.5 shrink-0">
+                <div className="px-2 py-1.5 border-b bg-green-50 flex items-center gap-1.5 shrink-0">
                   <span className="text-[10px] text-gray-600 shrink-0">
                     অ্যাসাইন:
                   </span>
@@ -591,7 +591,7 @@ export default function StaffChatWidget() {
                     type="button"
                     onClick={() => void handleAssign()}
                     disabled={!assignId || assigning}
-                    className="shrink-0 bg-[#055a36] text-white text-[10px] font-bold px-2 py-1 rounded-lg disabled:opacity-50"
+                    className="shrink-0 bg-[#1f2a5a] text-white text-[10px] font-bold px-2 py-1 rounded-lg disabled:opacity-50"
                   >
                     {assigning ? "..." : "দিন"}
                   </button>
@@ -610,14 +610,14 @@ export default function StaffChatWidget() {
                       <div
                         className={`max-w-[85%] px-2.5 py-1.5 rounded-2xl text-[12px] leading-relaxed shadow-sm ${
                           isStaff
-                            ? "bg-[#055a36] text-white rounded-br-none"
+                            ? "bg-[#1f2a5a] text-white rounded-br-none"
                             : msg.senderType === "CUSTOMER"
                               ? "bg-white text-gray-800 border border-gray-200 rounded-bl-none"
                               : "bg-amber-50 text-amber-900 border border-amber-100 rounded-bl-none text-[11px]"
                         }`}
                       >
                         {isStaff && (
-                          <span className="block text-[9px] font-semibold text-emerald-100 mb-0.5">
+                          <span className="block text-[9px] font-semibold text-green-100 mb-0.5">
                             {staffLabel(msg)}
                           </span>
                         )}
@@ -626,7 +626,7 @@ export default function StaffChatWidget() {
                         </span>
                         <span
                           className={`block text-[9px] mt-0.5 ${
-                            isStaff ? "text-emerald-100/70" : "text-gray-400"
+                            isStaff ? "text-green-100/70" : "text-gray-400"
                           }`}
                         >
                           {formatTime(msg.createdAt)}
@@ -648,14 +648,14 @@ export default function StaffChatWidget() {
                   onChange={(e) => setReplyText(e.target.value)}
                   placeholder="রিপ্লাই লিখুন..."
                   disabled={detail?.status === "CLOSED"}
-                  className="flex-1 border border-gray-200 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-[#055a36] disabled:bg-gray-50"
+                  className="flex-1 border border-gray-200 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-[#1f2a5a] disabled:bg-gray-50"
                 />
                 <button
                   type="submit"
                   disabled={
                     !replyText.trim() || sending || detail?.status === "CLOSED"
                   }
-                  className="bg-[#055a36] text-white px-3 py-1.5 rounded-xl text-xs font-bold disabled:opacity-50"
+                  className="bg-[#1f2a5a] text-white px-3 py-1.5 rounded-xl text-xs font-bold disabled:opacity-50"
                 >
                   পাঠান
                 </button>
@@ -669,7 +669,7 @@ export default function StaffChatWidget() {
         <button
           type="button"
           onClick={handleToggle}
-          className="relative bg-[#055a36] hover:bg-[#034026] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition"
+          className="relative bg-[#1f2a5a] hover:bg-[#161e42] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition"
           aria-label="লাইভ চ্যাট"
         >
           {open ? (

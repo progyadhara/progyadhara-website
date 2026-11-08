@@ -326,7 +326,7 @@ export default function ChatWidget() {
       /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s]+)/g;
     const linkClass = `underline font-medium break-all transition-colors ${
       isCustomer
-        ? "text-emerald-100 hover:text-white"
+        ? "text-green-100 hover:text-white"
         : "text-blue-600 hover:text-blue-800"
     }`;
 
@@ -374,7 +374,7 @@ export default function ChatWidget() {
     <div className="fixed right-4 bottom-36 md:bottom-20 z-[60]">
       {isOpen && (
         <div className="bg-white w-[300px] sm:w-[340px] h-[430px] rounded-2xl shadow-2xl flex flex-col border border-gray-200 overflow-hidden mb-3 transition-all duration-300">
-          <div className="bg-[#055a36] text-white p-3 flex justify-between items-center shadow-md">
+          <div className="bg-[#1f2a5a] text-white p-3 flex justify-between items-center shadow-md">
             <div className="flex items-center gap-2">
               <div
                 className={`w-2.5 h-2.5 rounded-full ${live ? "bg-green-400 animate-pulse" : "bg-yellow-300"}`}
@@ -385,7 +385,7 @@ export default function ChatWidget() {
                     ? `${siteConfig.brand.nameEn} Support`
                     : `${siteConfig.brand.nameBn} সহায়তা`}
                 </h3>
-                <p className="text-[9px] sm:text-[10px] text-emerald-100">
+                <p className="text-[9px] sm:text-[10px] text-green-100">
                   {live
                     ? isEn
                       ? "Live · WebSocket"
@@ -427,7 +427,7 @@ export default function ChatWidget() {
                   <div
                     className={`max-w-[85%] px-3 py-2 rounded-2xl text-[12px] sm:text-[12.5px] leading-relaxed ${
                       isCustomer
-                        ? "bg-[#055a36] text-white rounded-br-none shadow-sm"
+                        ? "bg-[#1f2a5a] text-white rounded-br-none shadow-sm"
                         : "bg-white text-gray-800 border border-gray-200 rounded-bl-none shadow-sm"
                     }`}
                   >
@@ -463,12 +463,12 @@ export default function ChatWidget() {
               placeholder={
                 isEn ? "Type your question..." : "আপনার প্রশ্নটি লিখুন..."
               }
-              className="flex-1 border border-gray-200 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-[#055a36] text-gray-800 transition"
+              className="flex-1 border border-gray-200 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-[#1f2a5a] text-gray-800 transition"
             />
             <button
               type="submit"
               disabled={!inputText.trim() || loading}
-              className="bg-[#055a36] text-white p-2 rounded-xl hover:bg-[#034026] disabled:opacity-50 transition cursor-pointer hover:scale-105 active:scale-95"
+              className="bg-[#1f2a5a] text-white p-2 rounded-xl hover:bg-[#161e42] disabled:opacity-50 transition cursor-pointer hover:scale-105 active:scale-95"
             >
               <svg
                 className="w-3.5 h-3.5 sm:w-4 sm:h-4 transform rotate-90"
@@ -500,7 +500,7 @@ export default function ChatWidget() {
 
         <button
           onClick={toggleChat}
-          className="relative bg-[#055a36] hover:bg-[#034026] text-white w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-transform duration-200 cursor-pointer"
+          className="relative bg-[#1f2a5a] hover:bg-[#161e42] text-white w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-transform duration-200 cursor-pointer"
           aria-label="Toggle Chat"
         >
           {isOpen ? (

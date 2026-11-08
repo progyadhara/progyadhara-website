@@ -284,7 +284,7 @@ export default function Footer() {
               <a
                 href={`mailto:${siteConfig.contact.email}`}
                 aria-label="Email Us"
-                className="relative w-8 h-8 rounded-full bg-emerald-600 hover:opacity-90 flex items-center justify-center shrink-0 transition before:absolute before:-inset-1.5 before:content-['']"
+                className="relative w-8 h-8 rounded-full bg-green-600 hover:opacity-90 flex items-center justify-center shrink-0 transition before:absolute before:-inset-1.5 before:content-['']"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

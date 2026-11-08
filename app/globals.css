@@ -15,12 +15,23 @@
   --color-green-900: #161e42;
   --color-green-950: #0e1329;
 
+  --color-yellow-50: #fdf6e3;
+  --color-yellow-100: #faebc2;
+  --color-yellow-200: #f5d98a;
+  --color-yellow-300: #edc255;
+  --color-yellow-400: #e0a526;
+  --color-yellow-500: #c98f1a;
+  --color-yellow-600: #a87414;
+  --color-yellow-700: #85590f;
+  --color-yellow-800: #6b470f;
+  --color-yellow-900: #533810;
+
   --color-brand-gold: #e0a526;
   --color-brand-cream: #fff8ec;
 }
 
 :root {
-  --background: #ffffff;
+  --background: #FFF8EC;
   --foreground: #171717;
 }
 

@@ -370,7 +370,7 @@ export default function AdminChatPage() {
           </span>
           {siteStats && (
             <>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
                 🟢 এই মুহূর্তে সাইটে: {siteStats.liveCount} জন
               </span>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
@@ -526,7 +526,7 @@ export default function AdminChatPage() {
                       <div
                         className={`max-w-[85%] px-3 py-2 rounded-2xl text-[12.5px] leading-relaxed shadow-sm ${
                           isStaff
-                            ? "bg-[#055a36] text-white rounded-br-none"
+                            ? "bg-[#1f2a5a] text-white rounded-br-none"
                             : isCustomer
                               ? "bg-white text-gray-800 border border-gray-200 rounded-bl-none"
                               : "bg-amber-50 text-amber-900 border border-amber-100 rounded-bl-none text-[11px]"
@@ -538,7 +538,7 @@ export default function AdminChatPage() {
                           </span>
                         )}
                         {isStaff && (
-                          <span className="block text-[10px] font-semibold mb-0.5 text-emerald-100">
+                          <span className="block text-[10px] font-semibold mb-0.5 text-green-100">
                             {msg.senderType === "AGENT" ? "এজেন্ট" : "অ্যাডমিন"}
                           </span>
                         )}
@@ -546,7 +546,7 @@ export default function AdminChatPage() {
                           {msg.text}
                         </span>
                         <span
-                          className={`block text-[9px] mt-1 ${isStaff ? "text-emerald-100/80" : "text-gray-400"}`}
+                          className={`block text-[9px] mt-1 ${isStaff ? "text-green-100/80" : "text-gray-400"}`}
                         >
                           {formatTime(msg.createdAt)}
                         </span>
@@ -580,7 +580,7 @@ export default function AdminChatPage() {
                   disabled={
                     !replyText.trim() || sending || detail.status === "CLOSED"
                   }
-                  className="bg-[#055a36] text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-[#034026] disabled:opacity-50 transition"
+                  className="bg-[#1f2a5a] text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-[#161e42] disabled:opacity-50 transition"
                 >
                   {sending ? "..." : "পাঠান"}
                 </button>
