@@ -11,7 +11,7 @@ const dict = {
       "হিন্দু ধর্মগ্রন্থ, গীতা, রামায়ণ, মহাভারত, পূজার বই ও পূজার উপকরণ, এক জায়গায়।",
     slogan: "জ্ঞানের ধারায় জীবনের পথ",
     productsHeading: "পণ্য বিভাগ",
-    products: ["খাঁটি মধু", "খাঁটি ঘি", "খাঁটি সরিষার তেল", "খেজুরের গুড়", "চীনা হাঁসের বাচ্চা"],
+    products: ["সব বই ও উপকরণ", "ব্লগ", "ভিডিও", "ছবির গ্যালারি", "প্রতিযোগিতা"],
     serviceHeading: "কাস্টমার সেবা",
     trackOrder: "অর্ডার ট্র্যাক",
     returnPolicy: "রিটার্ন পলিসি",
@@ -20,7 +20,7 @@ const dict = {
     aboutUs: "আমাদের সম্পর্কে",
     paymentHeading: "পেমেন্ট মেথড",
     paymentMethods: ["বিকাশ", "নগদ", "রকেট", "কার্ড", "ক্যাশ অন ডেলিভারি (COD)"],
-    farmHeading: "আমাদের খামার",
+    farmHeading: "আমাদের ঠিকানা",
     location: `${siteConfig.address.locality}, ${siteConfig.address.region}`,
     businessContact: "ব্যবসায়িক যোগাযোগ",
     copyright: `© ২০২৬ ${siteConfig.brand.name}. সর্বস্বত্ব সংরক্ষিত।`,
@@ -29,10 +29,10 @@ const dict = {
   },
   en: {
     description:
-      "Hindu scriptures, Bhagavad Gita, Ramayana, Mahabharata, puja books all are one place.",
+      "Hindu scriptures, the Bhagavad Gita, Ramayana, Mahabharata, puja books and puja items, all in one place.",
     slogan: "The path of life in the stream of knowledge",
     productsHeading: "Products",
-    products: ["Pure Honey", "Pure Ghee", "Pure Mustard Oil", "Date Palm Jaggery", "Duck Chicks"],
+    products: ["All Books & Items", "Blog", "Videos", "Photo Gallery", "Contests"],
     serviceHeading: "Customer Service",
     trackOrder: "Track Order",
     returnPolicy: "Return Policy",
@@ -41,7 +41,7 @@ const dict = {
     aboutUs: "About Us",
     paymentHeading: "Payment Methods",
     paymentMethods: ["bKash", "Nagad", "Rocket", "Card", "Cash on Delivery (COD)"],
-    farmHeading: "Our Farm",
+    farmHeading: "Our Address",
     location: `${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}`,
     businessContact: "Business Inquiries",
     copyright: `© 2026 ${siteConfig.brand.name}. All rights reserved.`,
@@ -50,13 +50,7 @@ const dict = {
   },
 };
 
-const productSlugs = [
-  "khati-modhu",
-  "khati-ghee",
-  "khati-sorisha-tel",
-  "khejurer-gur",
-  "hasher-bacha",
-];
+const productSlugs = ["/shop", "/blog", "/media/video", "/media/image", "/contests"];
 
 const paymentIcons = [
   {
@@ -423,7 +417,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-block hover:text-green-700 transition leading-tight whitespace-nowrap py-2 -my-1"
               >
-                🏡 {t.location}
+              📍 {t.location}
               </a>
               <a
                 href={`https://wa.me/${siteConfig.contact.whatsapp}`}
@@ -434,12 +428,12 @@ export default function Footer() {
                 💬 {siteConfig.contact.phoneDisplay}
               </a>
               <a
-                href="https://wa.me/8801521406139"
+                href={`https://wa.me/${siteConfig.contact.businessWhatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block hover:text-green-700 transition leading-tight whitespace-nowrap py-2 -my-1"
               >
-                💼 {t.businessContact}: 01521406139
+                💼 {t.businessContact}: {siteConfig.contact.businessPhone}
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}

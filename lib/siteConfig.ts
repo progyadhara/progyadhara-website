@@ -42,6 +42,8 @@ export const siteConfig = {
     phone: "+8801737939688",
     phoneDisplay: "01737939688",
     whatsapp: "8801737939688",
+    businessPhone: "01521406139", // ব্যবসায়িক যোগাযোগের নম্বর
+    businessWhatsapp: "8801521406139",
     email: "contact@progyadhara.com",
   },
 
