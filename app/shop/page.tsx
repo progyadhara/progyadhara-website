@@ -32,7 +32,7 @@ export default async function ShopPage() {
         <div className="text-center mb-4">
           <h1 className="text-2xl font-bold text-green-800">আমাদের সকল পণ্য</h1>
           <p className="text-sm text-gray-500 mt-2">
-            খামার থেকে সরাসরি আপনার কাছে
+            যত্ন সহকারে পৌঁছে দিচ্ছি আপনার কাছে
           </p>
         </div>
         {products.length === 0 ? (
