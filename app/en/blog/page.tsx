@@ -9,9 +9,9 @@ export const revalidate = 86400;
 export async function generateMetadata() {
   return {
     title:
-      `Farming Blog - Livestock, Poultry & Crop Cultivation | ${siteConfig.brand.nameEn}`,
+      `Blog - Scriptures, Puja & Life Philosophy | ${siteConfig.brand.nameEn}`,
     description:
-      `Read real experiences and guides on livestock rearing, poultry farming, crop cultivation, and farm stories on the ${siteConfig.brand.nameEn} blog.`,
+      `Read simple, practical articles and guides on the Bhagavad Gita, scriptures, puja, and life philosophy on the ${siteConfig.brand.nameEn} blog.`,
     alternates: {
       canonical: "/en/blog",
       languages: {
@@ -54,10 +54,10 @@ export default async function BlogPageEn({
       <Breadcrumb items={[{ label: "Home", href: "/en" }, { label: "Blog" }]} />
       <div className="max-w-6xl mx-auto px-1 py-16 pt-8 text-center">
         <h1 className="text-2xl font-bold text-green-800 mb-2">
-          Our Farming Blog
+          Our Blog
         </h1>
         <p className="text-gray-500 mb-8">
-          Articles on farming, livestock, and daily life on the farm
+          Articles on scriptures, puja, and spiritual life
         </p>
 
         {/* Category Filter */}

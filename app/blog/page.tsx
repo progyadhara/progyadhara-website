@@ -8,8 +8,8 @@ export const revalidate = 86400;
 
 export async function generateMetadata() {
   return {
-    title: `কৃষি বিষয়ক ব্লগ - পশুপালন, পাখি পালন ও ফসল চাষ | ${siteConfig.brand.name}`,
-    description: `${siteConfig.brand.name}-এর ব্লগে পড়ুন পশুপালন, পাখি পালন, ফসল চাষ ও খামারের গল্প সম্পর্কে বাস্তব অভিজ্ঞতা ও গাইড।`,
+    title: `ব্লগ - ধর্মগ্রন্থ, পূজা ও জীবনদর্শন | ${siteConfig.brand.name}`,
+    description: `${siteConfig.brand.name}-এর ব্লগে পড়ুন গীতা ও ধর্মগ্রন্থ, পূজা-উপাসনা ও জীবনদর্শন সম্পর্কে সহজ ভাষায় লেখা ও গাইড।`,
     alternates: {
       canonical: "/blog",
       languages: {
@@ -20,14 +20,6 @@ export async function generateMetadata() {
   };
 }
 
-const categories = [
-  "সব",
-  "খামারের গল্প",
-  "স্বাস্থ্যকর লাইফস্টাইল",
-  "পাখি পালন",
-  "ফসল চাষ",
-  "পশুপালন",
-];
 
 export default async function BlogPage({
   searchParams,
@@ -36,6 +28,11 @@ export default async function BlogPage({
 }) {
   const { category } = await searchParams;
   const activeCategory = category || "সব";
+
+  const dbCategories = await prisma.blogCategory.findMany({
+    orderBy: { name: "asc" },
+  });
+  const categories = ["সব", ...dbCategories.map((c) => c.name)];
 
   const blogs = await prisma.blog.findMany({
     where: {
@@ -50,9 +47,9 @@ export default async function BlogPage({
       <Breadcrumb items={[{ label: "হোম", href: "/" }, { label: "ব্লগ" }]} />
       <div className="max-w-6xl mx-auto px-1 py-16 pt-8 text-center">
         <h1 className="text-2xl font-bold text-green-800 mb-2">
-          আমাদের কৃষি বিষয়ক ব্লগ গুলো এখানে আছে
+          আমাদের ব্লগ
         </h1>
-        <p className="text-gray-500 mb-8">কৃষি, পশুপালন ও খামার বিষয়ক লেখা</p>
+        <p className="text-gray-500 mb-8">ধর্মগ্রন্থ, পূজা ও জীবনদর্শন বিষয়ক লেখা</p>
 
         {/* Category Filter */}
         <div className="flex gap-2 flex-wrap justify-center mb-8">

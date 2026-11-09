@@ -61,7 +61,7 @@ const sections = [
   },
   {
     title: "যোগাযোগ",
-    content: `গোপনীয়তা সংক্রান্ত কোনো প্রশ্ন থাকলে আমাদের হোয়াটসঅ্যাপে (${siteConfig.contact.phoneDisplay}) যোগাযোগ করুন। আমাদের খামার: ${siteConfig.address.village}, ${siteConfig.address.locality}, ${siteConfig.address.region}।`,
+    content: `গোপনীয়তা সংক্রান্ত কোনো প্রশ্ন থাকলে আমাদের হোয়াটসঅ্যাপে (${siteConfig.contact.phoneDisplay}) যোগাযোগ করুন। আমাদের ঠিকানা: ${siteConfig.address.village}, ${siteConfig.address.locality}, ${siteConfig.address.region}।`,
   },
 ];
 

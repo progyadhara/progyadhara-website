@@ -21,7 +21,6 @@ type Settings = {
   enableCoupons: boolean;
   enableWishlist: boolean;
   enablePaymentGateway: boolean;
-  enableInvestmentProgram: boolean;
   farmCowCount: number | null;
   farmDuckCount: number | null;
   farmGoatCount: number | null;
@@ -203,14 +202,6 @@ export default function AdminSystemSettingsPage() {
           checked={settings.enableWishlist}
           onChange={(v) => updateField("enableWishlist", v)}
           disabled={savingField === "enableWishlist"}
-          comingSoon
-        />
-        <ToggleRow
-          label="বিনিয়োগ প্রোগ্রাম"
-          description="হোমপেজে 'বিনিয়োগ করুন' সেকশন দেখাবে কিনা — কাজ চলাকালীন বন্ধ রাখুন"
-          checked={settings.enableInvestmentProgram}
-          onChange={(v) => updateField("enableInvestmentProgram", v)}
-          disabled={savingField === "enableInvestmentProgram"}
           comingSoon
         />
       </div>

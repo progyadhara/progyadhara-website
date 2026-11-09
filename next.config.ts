@@ -32,9 +32,6 @@ const cspHeader = `
     // ছোট কিওয়ার্ড URL → আসল ল্যান্ডিং পেজে রিডাইরেক্ট
     async redirects() {
       return [
-        { source: "/modhu", destination: "/khati-modhu", permanent: true },
-        { source: "/sorisha-tel", destination: "/khati-sorisha-tel", permanent: true },
-        { source: "/ghee", destination: "/khati-ghee", permanent: true },
         {
           source: "/development",
           destination: "https://farmerkamol.com/development",

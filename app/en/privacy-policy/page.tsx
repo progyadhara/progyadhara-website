@@ -61,7 +61,7 @@ const sections = [
   },
   {
     title: "Contact",
-    content: `If you have any questions about privacy, please contact us on WhatsApp (${siteConfig.contact.phoneDisplay}). Our farm: ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}.`,
+    content: `If you have any questions about privacy, please contact us on WhatsApp (${siteConfig.contact.phoneDisplay}). Our address: ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}.`,
   },
 ];
 

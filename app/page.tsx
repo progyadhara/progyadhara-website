@@ -146,8 +146,6 @@ export default async function HomePage() {
         }
       />
 
-      {/* Investment CTA — admin panel থেকে on/off */}
-  
 
       {/* Reviews — Footer-এর ঠিক আগে */}
       <TestimonialSection reviews={reviews} />

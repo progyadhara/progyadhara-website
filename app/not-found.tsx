@@ -16,7 +16,7 @@ export default function NotFound() {
       </h1>
       <p className="text-gray-500 mb-4 text-sm max-w-sm">
         আপনি যে পেজটি খুঁজছেন তা সরানো হয়েছে বা আর নেই। আমাদের শপ থেকে পছন্দের
-        পণ্য দেখুন, অথবা আমাদের খামারের ভিডিও দেখুন।
+        পণ্য দেখুন, অথবা আমাদের ধর্মগ্রন্থের ভিডিও দেখুন।
       </p>
       <div className="flex flex-wrap gap-3 justify-center">
         <Link

@@ -27,17 +27,17 @@ const sections = [
   {
     title: "Products & Pricing",
     content:
-      "The prices of honey, ghee, and mustard oil are as shown on the website. Since these are natural products, slight variations in color or texture may occur between batches, which does not affect product quality. We reserve the right to change prices without prior notice. If stock is limited, orders may be cancelled or adjusted, and the customer will be informed.",
+      "The prices of religious books and puja items are as shown on the website. Depending on the edition, or for handmade items, slight variations in color, size, or design may occur, which does not affect product quality. We reserve the right to change prices without prior notice. If stock is limited, orders may be cancelled or adjusted, and the customer will be informed.",
   },
   {
-    title: "Special Terms for Duck Chicks",
+    title: "Special Terms for Fragile Items",
     content:
-      "The price of duck chicks is not fixed — it's determined through discussion based on age and size. Orders must be confirmed via WhatsApp. As these are live animals, full payment must be completed before delivery. Whether delivery is possible to your area will be confirmed after checking your location. In case of delay or unintentional harm during transport of live animals, we will assist as best we can, but full liability cannot be guaranteed.",
+      "Fragile items such as idols and clay or glass lamps are packed carefully before shipping. If an item arrives damaged, you must inform us within 24 hours of delivery with photos or video of the unboxing (see our Return Policy for details). In case of unintentional damage during courier transport, we will assist as best we can.",
   },
   {
     title: "Orders & Payment",
     content:
-      "We accept Cash on Delivery (COD). If you choose the online payment option, you must send money directly to the bKash, Nagad, or Rocket number shown at checkout. Orders cannot be processed without completed payment (except for duck chicks and COD orders).",
+      "We accept Cash on Delivery (COD). If you choose the online payment option, you must send money directly to the bKash, Nagad, or Rocket number shown at checkout. Orders cannot be processed without completed payment (except for COD orders).",
   },
   {
     title: "Delivery",
@@ -63,7 +63,7 @@ const sections = [
   },
   {
     title: "Contact",
-    content: `If you have any questions about these terms, contact us on WhatsApp (${siteConfig.contact.phoneDisplay}). Our farm: ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}.`,
+    content: `If you have any questions about these terms, contact us on WhatsApp (${siteConfig.contact.phoneDisplay}). Our address: ${siteConfig.address.villageEn}, ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}.`,
   },
 ];
 

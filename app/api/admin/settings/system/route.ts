@@ -54,7 +54,6 @@ export async function PUT(request: Request) {
       "enableCoupons",
       "enableWishlist",
       "enablePaymentGateway",
-      "enableInvestmentProgram",
       "farmCowCount",
       "farmDuckCount",
       "farmGoatCount",
@@ -78,8 +77,6 @@ export async function PUT(request: Request) {
     revalidatePath("/en");
     revalidatePath("/media/video");
     revalidatePath("/en/media/video");
-    revalidatePath("/invest");
-    revalidatePath("/en/invest");
     return NextResponse.json(settings);
   } catch (error) {
     console.error("SYSTEM SETTINGS PUT ERROR:", error);

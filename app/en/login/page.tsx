@@ -249,7 +249,7 @@ export default function LoginPageEn() {
             {siteConfig.brand.nameEn}
           </h1>
           <p className="text-sm text-yellow-600 mt-1">
-            From Our Farm To Your Door
+            Religious Books and Puja Items, Delivered To Your Door
           </p>
         </div>
         {user ? (

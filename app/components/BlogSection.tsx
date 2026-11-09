@@ -16,7 +16,7 @@ export default function BlogSection({ blogs }: { blogs: Blog[] }) {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-green-800">
-            আমাদের কৃষি বিষয়ক ব্লগ
+            আমাদের ব্লগ
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">

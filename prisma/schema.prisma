@@ -21,7 +21,7 @@ model SystemControlCenter {
   maskCustomerData          Boolean @default(true)
   disableLiveCourierAPI     Boolean @default(true)
   paperSizeMode             String  @default("POS")
-  invoicePrefix             String  @default("FK")
+  invoicePrefix             String  @default("PG")
   useFreeWhatsAppOnly       Boolean @default(true)
   useGoogleSMTP             Boolean @default(true)
   minAmountForPaidSMS       Int     @default(2000)
@@ -41,8 +41,8 @@ model SystemControlCenter {
   normalDhakaExtraPerUnit   Int     @default(20)
   normalOutsideBaseCharge   Int     @default(120)
   normalOutsideExtraPerUnit Int     @default(30)
-  facebookPageUrl           String  @default("https://www.facebook.com/farmerkamol")
-  youtubeChannelUrl         String  @default("https://www.youtube.com/@FarmerKamol")
+  facebookPageUrl           String  @default("https://www.facebook.com/progyadhara")
+  youtubeChannelUrl         String  @default("https://www.youtube.com/@progyadhara")
 }
 
 model User {
@@ -461,66 +461,9 @@ model ChatMessage {
   conversation   ChatConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 }
 
-model Project {
-  id                     Int          @id @default(autoincrement())
-  name                   String
-  description            String?
-  startDate              DateTime?
-  isAcceptingFunds       Boolean      @default(true)
-  // ✅ /invest পাবলিক পেজে "বিস্তারিত" সহ ফিচার হবে কোন প্রজেক্টটা (একসাথে একটাই)
-  isFeaturedOnInvestPage Boolean      @default(false)
-  targetAmount           Float?
-  ownContributionAmount  Float?
-  fundUsage              String?
-  timeline               String?
-  risks                  String?
-  profitShareNote        String?
-  // ✅ নতুন ফিল্ড — Admin থেকে কন্ট্রোল হবে
-  durationMonths         Int?         // মেয়াদ (মাস), যেমন ১২
-  investorProfitPct      Float?       // অংশীদারের লাভ %, যেমন ৩৫
-  totalLots              Int?         // মোট লট/শেয়ার, যেমন ২০০
-  lotUnitName           String?      // "শেয়ার" / "গরু" ইত্যাদি
-  // ✅ /en/invest পেজের জন্য ইংরেজি ফিল্ড — admin থেকে এডিট হবে
-  nameEn                String?
-  descriptionEn         String?
-  fundUsageEn           String?
-  timelineEn            String?
-  risksEn               String?
-  profitShareNoteEn     String?
-  lotUnitNameEn         String?
-  createdAt              DateTime     @default(now())
-  updatedAt              DateTime     @updatedAt
-  investments            Investment[]
-}
 
-model Transaction {
-  id           Int               @id @default(autoincrement())
-  investmentId Int
-  investment   Investment        @relation(fields: [investmentId], references: [id])
-  type         TransactionType
-  amount       Float
-  slipImageUrl String?
-  status       TransactionStatus @default(PENDING)
-  note         String?
-  createdAt    DateTime          @default(now())
-  confirmedAt  DateTime?
-}
 
-model Agreement {
-  id             Int        @id @default(autoincrement())
-  investmentId   Int        @unique
-  investment     Investment @relation(fields: [investmentId], references: [id])
-  agreementNo    String     @unique
-  profitSharePct Float?
-  documentUrl    String?
-  generatedAt    DateTime   @default(now())
-}
 
-model playing_with_neon {
-  id    Int    @id @default(autoincrement())
-  name  String
-  value Float? @db.Real
-}
 
 enum PriceType {
   FIXED
@@ -582,23 +525,8 @@ enum ChatStatus {
   CLOSED
 }
 
-enum InvestmentStatus {
-  PENDING
-  ACTIVE
-  COMPLETED
-  CANCELLED
-}
 
-enum TransactionType {
-  DEPOSIT
-  WITHDRAWAL
-}
 
-enum TransactionStatus {
-  PENDING
-  CONFIRMED
-  REJECTED
-}
 
 enum ChatSenderType {
   CUSTOMER

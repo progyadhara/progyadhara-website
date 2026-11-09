@@ -50,22 +50,14 @@ export default function ConditionalLayout({
     pathname === "/en/order" ||
     pathname === "/cart" ||
     pathname === "/en/cart";
-
-  // ✅ invest-related পেজে cart + live chat লুকাবে — শুধু WhatsApp থাকবে
-  const isInvestPage =
-    pathname === "/invest" ||
-    pathname.startsWith("/invest/") ||
-    pathname === "/en/invest" ||
-    pathname.startsWith("/en/invest/");
-
   return (
     <MobileMenuProvider>
       <AgentModeBanner />
       <Navbar />
       <NotificationPermissionBanner />
-      {!hideFloatingCart && !isInvestPage && <FloatingCartButton />}
+      {!hideFloatingCart && <FloatingCartButton />}
       <FloatingWhatsAppButton />
-      {!isInvestPage && <ChatWidget />}
+      <ChatWidget />
       <div className="h-[76px]" />
       <main className="flex-grow">{children}</main>
       <Footer />

@@ -7,7 +7,7 @@ export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: `মিডিয়া গ্যালারি - ${siteConfig.brand.name}`,
-  description: `${siteConfig.brand.name}-এর খামার, পণ্য ও কার্যক্রমের ছবি গ্যালারি দেখুন।`,
+  description: `${siteConfig.brand.name}-এর বই, উপকরণ ও কার্যক্রমের ছবি গ্যালারি দেখুন।`,
   alternates: {
     canonical: "/media/image",
   },
