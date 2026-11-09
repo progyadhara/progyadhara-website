@@ -30,8 +30,8 @@ export default function OrganizationSchema({ lang }: { lang: "bn" | "en" }) {
       addressCountry: siteConfig.address.country,
     },
     description: isEn
-      ? "Agro-commerce brand based in Raiganj, Sirajganj, Bangladesh, supplying pure honey, ghee, mustard oil, and Chinese duck chicks directly from the farm."
-      : "সিরাজগঞ্জের রায়গঞ্জ থেকে সরাসরি খাঁটি মধু, দেশি ঘি, সরিষার তেল ও চীন হাঁসের বাচ্চা সরবরাহকারী কৃষি ব্র্যান্ড।",
+      ? siteConfig.seo.descriptionEn
+      : siteConfig.seo.description,
     sameAs: [
       siteConfig.social.facebook,
       siteConfig.social.youtube,

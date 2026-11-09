@@ -18,7 +18,7 @@ export const revalidate = 86400; // ২৪ ঘণ্টা safety-net; Admin Sav
 
 export const metadata: Metadata = {
   title: `${siteConfig.brand.displayName} | ${siteConfig.brand.slogan}`,
-  description: `${siteConfig.brand.displayName}: ${siteConfig.address.region}ের ${siteConfig.address.locality} থেকে সরাসরি খাঁটি মধু, ঘি, সরিষার তেল ও চীন হাঁসের বাচ্চা — কোনো মধ্যস্থতাকারী ছাড়া, জ্ঞানের ধারায় জীবনের পথ।`,
+  description: siteConfig.seo.description,
   alternates: {
     canonical: "/",
     languages: {

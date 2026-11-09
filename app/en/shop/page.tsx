@@ -7,8 +7,8 @@ import { siteConfig } from "@/lib/siteConfig";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: `All Products - Honey, Ghee, Mustard Oil | ${siteConfig.brand.nameEn}`,
-  description: `Browse all ${siteConfig.brand.nameEn} products — pure honey, homemade ghee, mustard oil, and Muscovy ducks, delivered straight from our farm in ${siteConfig.address.regionEn}.`,
+  title: `All Products - Religious Books & Puja Items | ${siteConfig.brand.nameEn}`,
+  description: `Browse all ${siteConfig.brand.nameEn} products — Hindu scriptures, the Bhagavad Gita, puja books and puja items, with home delivery across Bangladesh.`,
   alternates: {
     canonical: "/en/shop",
     languages: {
@@ -38,7 +38,7 @@ export default async function ShopPage() {
             All Our Products
           </h1>
           <p className="text-sm text-gray-500 mt-2">
-            Straight from the farm to you
+            Delivered with care to your door
           </p>
         </div>
         {products.length === 0 ? (

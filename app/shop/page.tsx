@@ -7,8 +7,8 @@ import { siteConfig } from "@/lib/siteConfig";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: `আমাদের সকল পণ্য - মধু, ঘি, সরিষার তেল | ${siteConfig.brand.name}`,
-  description: `${siteConfig.brand.name}-এর সব পণ্য একসাথে দেখুন — খাঁটি মধু, দেশি ঘি, সরিষার তেল ও চীন হাঁসের বাচ্চা, সরাসরি ${siteConfig.address.region}ের খামার থেকে।`,
+  title: `আমাদের সকল পণ্য - ধর্মীয় বই ও পূজা উপকরণ | ${siteConfig.brand.name}`,
+  description: `${siteConfig.brand.name}-এর সব পণ্য একসাথে দেখুন — হিন্দু ধর্মগ্রন্থ, গীতা, পূজার বই ও পূজার উপকরণ, সারা বাংলাদেশে হোম ডেলিভারি।`,
   alternates: {
     canonical: "/shop",
   },

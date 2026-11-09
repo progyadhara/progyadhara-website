@@ -21,10 +21,10 @@ const homeTitleEn = `${siteConfig.brand.displayName} | ${siteConfig.brand.slogan
 
 export const metadata: Metadata = {
   title: homeTitleEn,
-  description: `Pure honey, ghee, mustard oil, and duck chicks — delivered directly from our farm in ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}, with no middlemen.`,
+  description: siteConfig.seo.descriptionEn,
   openGraph: {
     title: homeTitleEn,
-    description: `Pure honey, ghee, mustard oil, and duck chicks — delivered directly from our farm in ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}, with no middlemen.`,
+    description: siteConfig.seo.descriptionEn,
     url: "/en",
     siteName: siteConfig.brand.nameEn,
     locale: "en_US",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: homeTitleEn,
-    description: `Pure honey, ghee, mustard oil, and duck chicks — delivered directly from our farm in ${siteConfig.address.localityEn}, ${siteConfig.address.regionEn}, with no middlemen.`,
+    description: siteConfig.seo.descriptionEn,
     images: [siteConfig.domain.ogImage],
   },
   alternates: {
